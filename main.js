@@ -1,6 +1,6 @@
 //Meetup API
 //autorization for OAuth
-const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=df773ak352f6trntvjgsvrg3n5&response_type=token&redirect_uri=https://guardiannw.github.io/test-meetup-api/index.html`;
+const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
 const url = window.location.href;
 const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
 let matcher;
