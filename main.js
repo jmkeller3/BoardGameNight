@@ -11,7 +11,7 @@ while(matcher = regex.exec(url)) {
 }
 if (Object.keys(queryParams).length) {
     // Authenticated
-    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&zip=38305&category_id=11&radius=smart`
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&zip=84043&category_id=11&radius=smart`
     console.log(queryParams);
     $.ajax(requestURL, {
         dataType: 'jsonp',
@@ -22,18 +22,18 @@ if (Object.keys(queryParams).length) {
 }
 else
     window.location.href = loginURL;
+//obsolete code attempts on Meetup API
+// const MEETUP_SEARCH_URL = 'https://api.meetup.com/2/concierge?sign=true&photo-host=public&category_id=11&key=e5f40e367a304f44178202d444470';
 
-const MEETUP_SEARCH_URL = 'https://api.meetup.com/2/concierge?sign=true&photo-host=public&category_id=11&key=e5f40e367a304f44178202d444470';
-
-function getDatafromMeetUp(location, callback) {
-    const query = {
-       category_id: 11,
-       radius: 1,
-       zip: location,
-    }
-    $.getJSON(MEETUP_SEARCH_URL, query, callback)
-    console.log(`getData ran`)
-}
+// function getDatafromMeetUp(location, callback) {
+//     const query = {
+//        category_id: 11,
+//        radius: 1,
+//        zip: location,
+//     }
+//     $.getJSON(MEETUP_SEARCH_URL, query, callback)
+//     console.log(`getData ran`)
+// }
 
 function renderMeetupResults(result) {
     console.log(`renderMeetup ran`)
@@ -43,8 +43,8 @@ function renderMeetupResults(result) {
             <a class="js-result-event" href="${result.event_url}" target="_blank">${result.name}</a>
             hosted by <a class="js-event-host" href="${result.group.urlname}" target="_blank">${result.group.name}</a>
             </h3>
-            ${result.simple_html_description}
-            <p>${result.venue.lat}, ${result.venue.lon}
+           <span> ${result.simple_html_description}</span>
+            <p>${result.venue.lat}, ${result.venue.lon} </p>
         </div>
     `
 }
