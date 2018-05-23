@@ -8,7 +8,6 @@ function renderResults(result) {
     console.log(`ran renderResults just fine`);
     let time = new Date(result.time);
     let date = time.toString('MMM dd');
-    
     return (`
         <div class="js-events">
             <h4>${result.name}</h4>
@@ -16,8 +15,10 @@ function renderResults(result) {
                 <span>Hosted by ${result.group.name}</span><br/>
                 <span>Starts at ${date}</span><br/>
                 <a href="${result.event_url}" target="_blank">Link</a><br/>
-                <span>${result.venue}</span>
+                <span>${result.venue.lat}</span><br/>
+                <span>${result.venue.lon}</span>
         </div>`)
+        
 }
 
 function displayresults(data) {
@@ -35,5 +36,35 @@ function watchSubmit() {
     });
     console.log(`watchSubmit ran`)
 }
+//google map api
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 1,
+    center: new google.maps.LatLng(2.8,-187.3),
+    mapTypeId: 'terrain'
+  });
+
+  // Create a <script> tag and set the USGS URL as the source.
+  var script = document.createElement('script');
+  // This example uses a local copy of the GeoJSON stored at
+  // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+  script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+// Loop through the results array and place a marker for each
+// set of coordinates.
+window.eqfeed_callback = function(results) {
+  for (var i = 0; i < results.features.length; i++) {
+    var coords = results.features[i].geometry.coordinates;
+    var latLng = new google.maps.LatLng(coords[1],coords[0]);
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+    });
+  }
+}
+
 
 $(watchSubmit)

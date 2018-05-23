@@ -2,26 +2,6 @@ const STORE = {
     "results": [
     {
     "utc_offset": -21600000,
-    "duration": 16200000,
-    "visibility": "public_limited",
-    "waitlist_count": 0,
-    "name": "Play Netrunner, Call of Cthulhu, UFS, Doomtown, Warhammer Conquest? - Join Us",
-    "id": "wbqppnyxhbdc",
-    "time": 1527031800000,
-    "yes_rsvp_count": 1,
-    "group": {
-    "join_mode": "approval",
-    "created": 1413676533000,
-    "name": "CCG/LCG Gamers",
-    "group_lon": -111.87000274658203,
-    "id": 17711022,
-    "urlname": "CCG-LCG-Gamers",
-    "group_lat": 40.7599983215332,
-    "who": "CardSlingers"
-    }
-    },
-    {
-    "utc_offset": -21600000,
     "venue": {
     "zip": "84111",
     "country": "us",
@@ -703,34 +683,6 @@ const STORE = {
     "urlname": "Board-Games-SLC",
     "group_lat": 40.619998931884766,
     "who": "Game Players"
-    },
-    "status": "upcoming"
-    },
-    {
-    "utc_offset": -21600000,
-    "rsvp_limit": 12,
-    "headcount": 0,
-    "visibility": "public",
-    "waitlist_count": 0,
-    "created": 1512825734000,
-    "maybe_rsvp_count": 0,
-    "description": "<p>We will play some board games. I will provide drinks and snacks. Feel free to bring a snack to share.</p> <p>I have a ton of games to choose from.  I have posted a semi-complete listing of my games in the Pages link.  (I try to keep it up to date, but I add to my collection frequently)</p> <p>People of all experience levels are welcome.</p> <p>Q&amp;A</p> <p>What if my schedule changes: I understand that things happen, but please change your RSVP to no so that we know that you won't be able to make it.</p> <p>Can I bring my children: Sorry, but no. I don't have any and there would be nothing for them to do. If you like you are welcome to post a meet up that you host where children are welcome (as long as it has a date/time and place I will move it to the calendar, otherwise it will remain suggested until enough people RSVP).</p> <p>Can I Bring my own Games: Yes. We often play games that people bring, however we likely won't have time to play all the games available.</p>",
-    "event_url": "https://www.meetup.com/Utah-TableTop/events/250051456/",
-    "yes_rsvp_count": 5,
-    "duration": 7200000,
-    "name": "Play Board games in Saratoga Springs",
-    "id": "lskfcpyxhbjc",
-    "time": 1527368400000,
-    "updated": 1512826415000,
-    "group": {
-    "join_mode": "open",
-    "created": 1380697374000,
-    "name": "Utah -  Table Top Games (RPG & Board)",
-    "group_lon": -111.8499984741211,
-    "id": 10517052,
-    "urlname": "Utah-TableTop",
-    "group_lat": 40.38999938964844,
-    "who": "Table Top Gamers"
     },
     "status": "upcoming"
     },
