@@ -19,6 +19,7 @@
 .js-location-form {
   display: inline-block;
   position: relative;
+  justify-items: center;
   
 }
 

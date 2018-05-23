@@ -2,16 +2,21 @@ const MeetUp_API_URL = 'https://api.meetup.com/2/concierge?zip=84043&offset=0&fo
 
 const game_events = STORE.results
 
-console.log(STORE);
+
 
 function renderResults(result) {
     console.log(`ran renderResults just fine`);
+    let time = new Date(result.time);
+    let date = time.toString('MMM dd');
+    
     return (`
         <div class="js-events">
             <h4>${result.name}</h4>
                 ${result.description}
                 <span>Hosted by ${result.group.name}</span><br/>
+                <span>Starts at ${date}</span><br/>
                 <a href="${result.event_url}" target="_blank">Link</a><br/>
+                <span>${result.venue}</span>
         </div>`)
 }
 
