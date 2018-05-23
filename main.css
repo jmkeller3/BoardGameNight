@@ -20,7 +20,21 @@ button {
   position: absolute;
 }
 
+.js-results {
+  text-align: center;
+  margin-top: 10%;
+}
 
+.js-events li {
+  list-style: none;
+}
+
+.js-events {
+  padding: 20px;
+  border: 1px solid black;
+  width: 75%;
+  margin: auto;
+}
 
 #map {
     height: 100%;
