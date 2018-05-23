@@ -8,6 +8,33 @@ function renderResults(result) {
     console.log(`ran renderResults just fine`);
     let time = new Date(result.time);
     let date = time.toString('MMM dd');
+
+    const venueExists = result.venue !== undefined;
+    const groupExists = result.group !== undefined;
+
+    let lat, lon;
+
+    if (venueExists) {
+        lat = result.venue.lat;
+        lon = result.venue.lon;
+    } else {
+        lat = result.group.group_lat;
+        lon = result.group.group_lon;
+    }
+
+    function renderLatAndLon () {
+        if (venueExists || groupExists) {
+            return `
+                <span>${lat}</span><br/>
+                <span>${lon}</span>
+            `;
+        } else {
+            return `
+                <span>No latitude and longitude availible.</span>
+            `
+        }
+    }
+
     return (`
         <div class="js-events">
             <h4>${result.name}</h4>
@@ -15,8 +42,7 @@ function renderResults(result) {
                 <span>Hosted by ${result.group.name}</span><br/>
                 <span>Starts at ${date}</span><br/>
                 <a href="${result.event_url}" target="_blank">Link</a><br/>
-                <span>${result.venue.lat}</span><br/>
-                <span>${result.venue.lon}</span>
+                ${renderLatAndLon()}
         </div>`)
         
 }
