@@ -2,6 +2,25 @@ const MeetUp_API_URL = 'https://api.meetup.com/2/concierge?zip=84043&offset=0&fo
 
 const game_events = STORE.results
 
+//google map api
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 40.3916, lng: -111.8508},
+    zoom: 10
+  });
+
+function addMarker(coords) {
+    var marker = new google.maps.Marker({
+        position: coords,
+        map: map,
+        icon: {
+            url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
+            scaledSize: new google.maps.Size(18,24)
+        }
+    })
+  } 
+}
 
 
 function renderResults(result) {
@@ -12,21 +31,21 @@ function renderResults(result) {
     const venueExists = result.venue !== undefined;
     const groupExists = result.group !== undefined;
 
-    let lat, lon;
+    let latituge, longitude;
 
     if (venueExists) {
-        lat = result.venue.lat;
-        lon = result.venue.lon;
+        latitude = result.venue.lat;
+        longitude = result.venue.lon;
     } else {
-        lat = result.group.group_lat;
-        lon = result.group.group_lon;
+        latitude = result.group.group_lat;
+        longitude = result.group.group_lon;
     }
 
     function renderLatAndLon () {
         if (venueExists || groupExists) {
             return `
-                <span>${lat}</span><br/>
-                <span>${lon}</span>
+                <span>${latitude}</span><br/>
+                <span>${longitude}</span>
             `;
         } else {
             return `
@@ -34,7 +53,7 @@ function renderResults(result) {
             `
         }
     }
-
+    
     return (`
         <div class="js-events">
             <h4>${result.name}</h4>
@@ -62,35 +81,8 @@ function watchSubmit() {
     });
     console.log(`watchSubmit ran`)
 }
-//google map api
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 1,
-    center: new google.maps.LatLng(2.8,-187.3),
-    mapTypeId: 'terrain'
-  });
 
-  // Create a <script> tag and set the USGS URL as the source.
-  var script = document.createElement('script');
-  // This example uses a local copy of the GeoJSON stored at
-  // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-  script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-  document.getElementsByTagName('head')[0].appendChild(script);
-}
 
-// Loop through the results array and place a marker for each
-// set of coordinates.
-window.eqfeed_callback = function(results) {
-  for (var i = 0; i < results.features.length; i++) {
-    var coords = results.features[i].geometry.coordinates;
-    var latLng = new google.maps.LatLng(coords[1],coords[0]);
-    var marker = new google.maps.Marker({
-      position: latLng,
-      map: map
-    });
-  }
-}
 
 
 $(watchSubmit)

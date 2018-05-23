@@ -18,14 +18,14 @@
 
 .js-location-form {
   display: inline-block;
-  position: relative;
-  justify-items: center;
   
 }
 
 button {
   display: block;
   position: absolute;
+  left: 50%;
+  top: 5%
 }
 
 
@@ -57,5 +57,7 @@ button {
 }
 
 #map {
-    height: 100%;
+    height: 400px;
+    width: 100%;
+    margin-top: 80px
   }
