@@ -8,7 +8,7 @@ function renderResults(result) {
     console.log(`ran renderResults just fine`);
     return (`
         <div class="js-events">
-            <h3>${result.name}</h3>
+            <h4>${result.name}</h4>
                 ${result.description}
                 <span>Hosted by ${result.group.name}</span><br/>
                 <a href="${result.event_url}" target="_blank">Link</a><br/>

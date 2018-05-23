@@ -3,7 +3,14 @@
   box-sizing: border-box;
 }
 
-
+.js-results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: start;
+  
+}
 
 .search-bar {
   align-content: center;
@@ -20,6 +27,16 @@ button {
   position: absolute;
 }
 
+
+.js-results > div {
+  padding: 1em;
+  background:#ddd;
+}
+
+.js-results > div:nth-child(even){
+  background: #fff;
+}
+
 .js-results {
   text-align: center;
   margin-top: 10%;
@@ -30,10 +47,10 @@ button {
 }
 
 .js-events {
-  padding: 20px;
+  /* padding: 20px; */
   border: 1px solid black;
-  width: 75%;
-  margin: auto;
+  /* width: 75%; */
+  /* margin: auto; */
 }
 
 #map {
