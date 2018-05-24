@@ -11,7 +11,7 @@ while(matcher = regex.exec(url)) {
 }
 if (Object.keys(queryParams).length) {
     // Authenticated
-    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&zip=84043&category_id=11&radius=smart`
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
     console.log(queryParams);
     $.ajax(requestURL, {
         dataType: 'jsonp',
@@ -24,6 +24,14 @@ if (Object.keys(queryParams).length) {
 else
     window.location.href = loginURL;
 
+function getUserLocation() {
+    navigator.geolocation.getCurrentPosition(definePosition)
+}
+
+function definePosition(position) {
+    const user_lat = position.coords.latitude;
+    const user_lon = position.coords.longitude;
+}
 
 function initAddMarkerWithMap(map) {
     return function addMarker(coords) {
@@ -44,7 +52,7 @@ let addMarker;
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.3916, lng: -111.8508},
+    center: {lat: user_lat, lng: user_lon},
     zoom: 10
   }); 
 
