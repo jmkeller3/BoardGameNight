@@ -24,6 +24,10 @@ if (Object.keys(queryParams).length) {
     });
 }
 else
+    let user_lat;
+    let user_lon;
+    getLocation();
+    console.log(user_lat, user_lon);
     window.location.href = loginURL;
 
     function getLocation() {
