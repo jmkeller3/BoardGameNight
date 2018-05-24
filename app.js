@@ -1,4 +1,28 @@
-const MeetUp_API_URL = 'https://api.meetup.com/2/concierge?zip=84043&offset=0&format=json&category_id=11&photo-host=public&page=500&sig_id=254699968&sig=9dfeb60b3e337a30d4407e49010a86088996c42a';
+//Meetup API
+//autorization for OAuth
+const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
+const url = window.location.href;
+const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
+let matcher;
+let queryParams = {};
+while(matcher = regex.exec(url)) {
+    const [,key, val] = matcher;
+    queryParams[key] = val;
+}
+if (Object.keys(queryParams).length) {
+    // Authenticated
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&zip=84043&category_id=11&radius=smart`
+    console.log(queryParams);
+    $.ajax(requestURL, {
+        dataType: 'jsonp',
+        success: function (data) {
+            console.log(data);
+        }
+    });
+}
+else
+    window.location.href = loginURL;
+
 
 const game_events = STORE.results
 
