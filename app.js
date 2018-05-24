@@ -25,28 +25,30 @@ else
     window.location.href = loginURL;
 
 
-// const game_events = STORE.results
+function initAddMarkerWithMap(map) {
+    return function addMarker(coords) {
+        var marker = new google.maps.Marker({
+            position: coords,
+            map: map,
+            icon: {
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
+                scaledSize: new google.maps.Size(18,24)
+            }
+        })
+        console.log(`made a marker`);
+      } 
+}
 
+let addMarker;
 //google map api
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.3916, lng: -111.8508},
     zoom: 10
-  });
+  }); 
 
-function addMarker(coords) {
-    var marker = new google.maps.Marker({
-        position: coords,
-        map: map,
-        icon: {
-            url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
-            scaledSize: new google.maps.Size(18,24)
-        }
-    })
-    console.log(`made a marker`);
-  } 
-  
+  addMarker = initAddMarkerWithMap(map);
 }
 
 
