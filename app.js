@@ -30,15 +30,15 @@ else
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(displayLocation);
         } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            console.log(`Geolocation is not supported by this browser.`);
         }
     }
     
     function displayLocation(position) {
         let user_lat = position.coords.latitude;
         let user_lon = position.coords.longitude;
-        x.innerHTML = "Latitude:" + user_lat + "<br/>Longitude: " + user_lon;
-        console.log(`work  `)
+        console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
+        console.log(`work`);
     }
 
 function initAddMarkerWithMap(map) {
