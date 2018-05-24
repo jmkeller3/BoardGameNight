@@ -68,14 +68,10 @@ function renderResults(result) {
 
     function renderLatAndLon () {
         if (venueExists || groupExists) {
-            return `
-                <span>${latitude}</span><br/>
-                <span>${longitude}</span>
-            `;
+            const pin = {lat: latituge, lng: longitude}
+            addMarker(pin);                
         } else {
-            return `
-                <span>No latitude and longitude availible.</span>
-            `
+            console.log(`No latitude and longitude availible.`);
         }
     }
     
