@@ -24,6 +24,14 @@ if (Object.keys(queryParams).length) {
 else
     window.location.href = loginURL;
 
+function getUserLocation() {
+    navigator.geolocation.getCurrentPosition(definePosition)
+}
+
+function definePosition(position) {
+    const user_lat = position.coords.latitude;
+    const user_lon = position.coords.longitude;
+}
 
 function initAddMarkerWithMap(map) {
     return function addMarker(coords) {
@@ -44,7 +52,7 @@ let addMarker;
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.3916, lng: -111.8508},
+    center: {lat: user_lat, lng: user_lon},
     zoom: 10
   }); 
 
