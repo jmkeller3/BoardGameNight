@@ -13,7 +13,7 @@ while(matcher = regex.exec(url)) {
 
 if (Object.keys(queryParams).length) {
     // Authenticated
-    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=100&category_id=11&radius=smart&lat=100`
     console.log(queryParams);
     getLocation();
     $.ajax(requestURL, {
