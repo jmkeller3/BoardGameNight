@@ -1,4 +1,3 @@
-
 getLocation();
 //Meetup API
 //autorization for OAuth
