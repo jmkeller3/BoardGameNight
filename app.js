@@ -46,6 +46,7 @@ function addMarker(coords) {
     })
     console.log(`made a marker`);
   } 
+  
 }
 
 
@@ -57,7 +58,7 @@ function renderResults(result) {
     const venueExists = result.venue !== undefined;
     const groupExists = result.group !== undefined;
 
-    let latituge, longitude;
+    let latitude, longitude;
 
     if (venueExists) {
         latitude = result.venue.lat;
@@ -69,7 +70,7 @@ function renderResults(result) {
 
     function renderLatAndLon () {
         if (venueExists || groupExists) {
-            const pin = {lat: latituge, lng: longitude}
+            const pin = {lat: latitude, lng: longitude}
             addMarker(pin);                
         } else {
             console.log(`No latitude and longitude availible.`);
