@@ -17,6 +17,7 @@ if (Object.keys(queryParams).length) {
         dataType: 'jsonp',
         success: function (data) {
             console.log(data);
+            displayresults(data);
         }
     });
 }
@@ -24,7 +25,7 @@ else
     window.location.href = loginURL;
 
 
-const game_events = STORE.results
+// const game_events = STORE.results
 
 //google map api
 var map;
@@ -91,22 +92,22 @@ function renderResults(result) {
 }
 
 function displayresults(data) {
-    const events = game_events.map((item, index) => renderResults(item));
+    const events = data.results.map((item, index) => renderResults(item));
     $('.js-results').html(events);
     console.log(`displayresults ran`);
 }
 
 
-function watchSubmit() {
-    $('.js-location-form').submit(event => {
-        event.preventDefault();
-        displayresults(STORE);
-        // displayMeetupData(STORE);
-    });
-    console.log(`watchSubmit ran`)
-}
+// function watchSubmit() {
+//     $('.js-location-form').submit(event => {
+//         event.preventDefault();
+//         displayresults(STORE);
+//         // displayMeetupData(STORE);
+//     });
+//     console.log(`watchSubmit ran`)
+// }
 
 
 
 
-$(watchSubmit)
+// $(watchSubmit)
