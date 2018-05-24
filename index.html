@@ -7,7 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="datastore.js"></script>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(displayLocation);
+            } else {
+                console.log(`Geolocation is not supported by this browser.`);
+            }
+        }
+    
+        function displayLocation(position) {
+            return 
+                let user_lat = position.coords.latitude;
+                let user_lon = position.coords.longitude;
+                console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
+                console.log(`work`);
+        }
+    </script>
     <script src="app.js"></script>
 </head>
 <body>

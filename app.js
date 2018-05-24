@@ -27,22 +27,6 @@ if (Object.keys(queryParams).length) {
 else
     window.location.href = loginURL;
 
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(displayLocation);
-        } else {
-            console.log(`Geolocation is not supported by this browser.`);
-        }
-    }
-    
-    function displayLocation(position) {
-        return 
-            let user_lat = position.coords.latitude;
-            let user_lon = position.coords.longitude;
-            console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
-            console.log(`work`);
-    }
-
 function initAddMarkerWithMap(map) {
     return function addMarker(coords) {
         var marker = new google.maps.Marker({
