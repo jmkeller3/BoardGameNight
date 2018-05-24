@@ -28,7 +28,7 @@ if (Object.keys(queryParams).length) {
     });
 }
 else
-    getLocation();
+    
     window.location.href = loginURL;
 
     function getLocation() {
