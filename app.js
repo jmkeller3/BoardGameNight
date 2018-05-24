@@ -11,6 +11,7 @@ while(matcher = regex.exec(url)) {
 }
 if (Object.keys(queryParams).length) {
     // Authenticated
+    getUserLocation();
     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
     console.log(queryParams);
     $.ajax(requestURL, {
