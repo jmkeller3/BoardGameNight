@@ -35,10 +35,11 @@ else
     }
     
     function displayLocation(position) {
-        let user_lat = position.coords.latitude;
-        let user_lon = position.coords.longitude;
-        console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
-        console.log(`work`);
+        return 
+            let user_lat = position.coords.latitude;
+            let user_lon = position.coords.longitude;
+            console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
+            console.log(`work`);
     }
 
 function initAddMarkerWithMap(map) {
