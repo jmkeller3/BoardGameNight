@@ -1,3 +1,5 @@
+
+getLocation();
 //Meetup API
 //autorization for OAuth
 const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
@@ -12,7 +14,6 @@ while(matcher = regex.exec(url)) {
 
 if (Object.keys(queryParams).length) {
     // Authenticated
-    getUserLocation();
     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
     console.log(queryParams);
     $.ajax(requestURL, {
@@ -26,14 +27,20 @@ if (Object.keys(queryParams).length) {
 else
     window.location.href = loginURL;
 
-function getUserLocation() {
-    navigator.geolocation.getCurrentPosition(definePosition)
-}
-
-function definePosition(position) {
-    const user_lat = position.coords.latitude;
-    const user_lon = position.coords.longitude;
-}
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(displayLocation);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    
+    function displayLocation(position) {
+        let user_lat = position.coords.latitude;
+        let user_lon = position.coords.longitude;
+        x.innerHTML = "Latitude:" + user_lat + "<br/>Longitude: " + user_lon;
+        console.log(`work  `)
+    }
 
 function initAddMarkerWithMap(map) {
     return function addMarker(coords) {
