@@ -44,6 +44,7 @@ function addMarker(coords) {
             scaledSize: new google.maps.Size(18,24)
         }
     })
+    console.log(`made a marker`);
   } 
 }
 
