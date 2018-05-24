@@ -9,22 +9,8 @@ while(matcher = regex.exec(url)) {
     const [,key, val] = matcher;
     queryParams[key] = val;
 }
-if (Object.keys(queryParams).length) {
-    // Authenticated
-    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&zip=84043&category_id=11&radius=smart`
-    console.log(queryParams);
-    $.ajax(requestURL, {
-        dataType: 'jsonp',
-        success: function (data) {
-            console.log(data);
-            displayresults(data);
-        }
-    });
-}
-else
-    window.location.href = loginURL;
-
-
+let user_lat = position.coords.latitude;
+    let user_lon = position.coords.longitude;
 function initAddMarkerWithMap(map) {
     return function addMarker(coords) {
         var marker = new google.maps.Marker({
