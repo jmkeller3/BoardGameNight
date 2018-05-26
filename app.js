@@ -1,3 +1,4 @@
+console.log(`test`)
 //Meetup API
 //autorization for OAuth
 const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
@@ -5,7 +6,9 @@ const url = window.location.href;
 const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
 let matcher;
 let queryParams = {};
-let user_lat, user_lon;
+let user_lat; 
+let user_lon;
+let initialLocation;
 while(matcher = regex.exec(url)) {
     const [,key, val] = matcher;
     queryParams[key] = val;
@@ -13,33 +16,35 @@ while(matcher = regex.exec(url)) {
 
 
 
-
-let addMarker;
 //google map api
+let addMarker;
 var map;
 var options;
 function initMap() {
-    var myLatlng1 = new google.maps.LatLng(53.65914, 0.072050);
-
     var mapOptions = {
         zoom: 9,
-        center: myLatlng1,
+        center: initialLocation,
     };
     var map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
 
     addMarker = initAddMarkerWithMap(map);
 
+    findGeo();
+}
+
+function findGeo() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            map.setCenter(initialLocation);
-            console.log(position.coords.latitude, position.coords.longitude)
+            console.log(position.coords.latitude, position.coords.longitude);
             user_lat = position.coords.latitude;
-            user_lon = position.coords.longitude; 
+            user_lon = position.coords.longitude;
+            initialLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
             console.log(`user_lat is ${user_lat} and is working`);
             console.log(`user_lon is ${user_lon} and is working`);
         });
+    }
+
         if (Object.keys(queryParams).length) {
             // Authenticated
             console.log(`${user_lon} is and is working`)
@@ -56,7 +61,7 @@ function initMap() {
         else
             window.location.href = loginURL;
     }
-}
+
 
 function initAddMarkerWithMap(map) {
     console.log(`made a marker`);
