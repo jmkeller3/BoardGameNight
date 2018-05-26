@@ -14,9 +14,10 @@ while(matcher = regex.exec(url)) {
 
 if (Object.keys(queryParams).length) {
     // Authenticated
+    let user_lat, user_lon;
     navigator.geolocation.getCurrentPosition(function (position) {
-        let user_lat = position.coords.latitude;
-        let user_lon = position.coords.longitude;
+        user_lat = position.coords.latitude;
+        user_lon = position.coords.longitude;
         console.log(`${user_lat} is ${position.coords.latitude} and is working`)
     });
     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
