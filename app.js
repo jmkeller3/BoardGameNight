@@ -29,28 +29,31 @@
 // else
 //     window.location.href = loginURL;
 
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(displayLocation);
-            return function displayLocation(position) {
-                return 
-                    let user_lat = position.coords.latitude;
-                    let user_lon = position.coords.longitude;
-                    console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
-                    console.log(`work`);
-            }
-        } else {
-            console.log(`Geolocation is not supported by this browser.`);
-        }
+
+let addMarker;
+//google map api
+var map;
+var options;
+function initMap() {
+    var myLatlng1 = new google.maps.LatLng(53.65914, 0.072050);
+
+    var mapOptions = {
+        zoom: 9,
+        center: myLatlng1,
+    };
+    var map = new google.maps.Map(document.getElementById('map'),
+    mapOptions);
+
+    addMarker = initAddMarkerWithMap(map);
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(initialLocation);
+            console.log(position.coords.latitude, position.coords.longitude)
+        });
     }
-    
-    function displayLocation(position) {
-        return 
-            let user_lat = position.coords.latitude;
-            let user_lon = position.coords.longitude;
-            console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
-            console.log(`work`);
-    }
+}
 
 function initAddMarkerWithMap(map) {
     console.log(`made a marker`);
@@ -63,18 +66,6 @@ function initAddMarkerWithMap(map) {
                     scaledSize: new google.maps.Size(18,24)
             }
         })} 
-}
-
-let addMarker;
-//google map api
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: user_lat, lng: user_lon},
-    zoom: 10
-  }); 
-
-  addMarker = initAddMarkerWithMap(map);
 }
 
 
