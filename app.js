@@ -31,7 +31,6 @@ function initMap() {
     addMarker = initAddMarkerWithMap(map);
 
     findGeo();
-    MeetupLogin();
 }
 
 function findGeo() {
