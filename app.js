@@ -1,33 +1,37 @@
-
 //Meetup API
 //autorization for OAuth
-// const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
-// const url = window.location.href;
-// const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
-// let matcher;
-// let queryParams = {};
-// while(matcher = regex.exec(url)) {
-//     const [,key, val] = matcher;
-//     queryParams[key] = val;
-// }
+const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
+const url = window.location.href;
+const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
+let matcher;
+let queryParams = {};
+while(matcher = regex.exec(url)) {
+    const [,key, val] = matcher;
+    queryParams[key] = val;
+}
 
 
 
-// if (Object.keys(queryParams).length) {
-//     // Authenticated
-//     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
-//     console.log(queryParams);
-//     getLocation();
-//     $.ajax(requestURL, {
-//         dataType: 'jsonp',
-//         success: function (data) {
-//             console.log(data);
-//             displayresults(data);
-//         }
-//     });
-// }
-// else
-//     window.location.href = loginURL;
+if (Object.keys(queryParams).length) {
+    // Authenticated
+    navigator.geolocation.getCurrentPosition(function (position) {
+        let user_lat = position.coords.latitude;
+        let user_lon = position.coords.longitude;
+        console.log(`${user_lat} is ${position.coords.latitude} and is working`)
+    });
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
+    console.log(queryParams);
+    getLocation();
+    $.ajax(requestURL, {
+        dataType: 'jsonp',
+        success: function (data) {
+            console.log(data);
+            displayresults(data);
+        }
+    });
+}
+else
+    window.location.href = loginURL;
 
 
 let addMarker;
