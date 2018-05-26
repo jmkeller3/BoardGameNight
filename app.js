@@ -1,11 +1,10 @@
-console.log(`test`)
-//Meetup API
-//autorization for OAuth
+//Meetup API autorization for OAuth
 const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
 const url = window.location.href;
 const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
 let matcher;
 let queryParams = {};
+//defining crucial varibles for map and Meetup search url
 let user_lat; 
 let user_lon;
 let initialLocation;
@@ -33,6 +32,7 @@ function initMap() {
     findGeo();
 }
 
+//accesses user's location and sets the location to the global varibles
 function findGeo() {
     console.log(`findGeo is working`);
     if (navigator.geolocation) {
@@ -43,12 +43,14 @@ function findGeo() {
             initialLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
             console.log(`user_lat is ${user_lat} and is working`);
             console.log(`user_lon is ${user_lon} and is working`);
+            //resets the map to be centered on the user's location
             initMap();
             MeetupLogin();
         });
     };
     }
-
+//takes user to the login page to allow access from Meetup
+//reloads page with JSONP data with nearby events
 function MeetupLogin() {
     console.log(`MeetupLogin is working`);
     if (Object.keys(queryParams).length) {
@@ -68,7 +70,7 @@ function MeetupLogin() {
         window.location.href = loginURL;
 }
 
-
+//adds customer marker to map
 function initAddMarkerWithMap(map) {
     console.log(`made a marker`);
     return function addMarker(coords) {
@@ -82,17 +84,18 @@ function initAddMarkerWithMap(map) {
         })} 
 }
 
-
+//takes a result and returns the time, place, description, and name 
+//the event
 function renderResults(result) {
     console.log(`ran renderResults just fine`);
     let time = new Date(result.time);
     let date = time.toString('MMM dd');
-
+    
     const venueExists = result.venue !== undefined;
     const groupExists = result.group !== undefined;
 
     let latitude, longitude;
-
+    //a check whether the event is a group event or a public event
     if (venueExists) {
         latitude = result.venue.lat;
         longitude = result.venue.lon;
@@ -100,7 +103,7 @@ function renderResults(result) {
         latitude = result.group.group_lat;
         longitude = result.group.group_lon;
     }
-
+    //displays a marker on map for event
     function renderLatAndLon () {
         if (venueExists || groupExists) {
             const pin = {lat: latitude, lng: longitude}
@@ -121,24 +124,9 @@ function renderResults(result) {
         </div>`)
         
 }
-
+//takes data from JSONP and displays it with the renderResults function
 function displayresults(data) {
     const events = data.results.map((item, index) => renderResults(item));
     $('.js-results').html(events);
     console.log(`displayresults ran`);
 }
-
-
-// function watchSubmit() {
-//     $('.js-location-form').submit(event => {
-//         event.preventDefault();
-//         displayresults(STORE);
-//         // displayMeetupData(STORE);
-//     });
-//     console.log(`watchSubmit ran`)
-// }
-
-
-
-
-// $(watchSubmit)
