@@ -30,6 +30,13 @@ else
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(displayLocation);
+            return function displayLocation(position) {
+                return 
+                    let user_lat = position.coords.latitude;
+                    let user_lon = position.coords.longitude;
+                    console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
+                    console.log(`work`);
+            }
         } else {
             console.log(`Geolocation is not supported by this browser.`);
         }
@@ -44,17 +51,16 @@ else
     }
 
 function initAddMarkerWithMap(map) {
+    console.log(`made a marker`);
     return function addMarker(coords) {
-        var marker = new google.maps.Marker({
-            position: coords,
-            map: map,
-            icon: {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
-                scaledSize: new google.maps.Size(18,24)
+            var marker = new google.maps.Marker({
+                position: coords,
+                map: map,
+                icon: {
+                    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
+                    scaledSize: new google.maps.Size(18,24)
             }
-        })
-        console.log(`made a marker`);
-      } 
+        })} 
 }
 
 let addMarker;
