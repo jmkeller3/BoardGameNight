@@ -31,6 +31,7 @@ function initMap() {
     addMarker = initAddMarkerWithMap(map);
 
     findGeo();
+    MeetupLogin();
 }
 
 function findGeo() {
@@ -43,9 +44,7 @@ function findGeo() {
             console.log(`user_lat is ${user_lat} and is working`);
             console.log(`user_lon is ${user_lon} and is working`);
         });
-    }
-
-        MeetupLogin();
+    };
     }
 
 function MeetupLogin() {
