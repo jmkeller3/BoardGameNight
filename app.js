@@ -14,7 +14,7 @@ while(matcher = regex.exec(url)) {
     queryParams[key] = val;
 }
 
-findGeo();
+
 
 //google map api
 let addMarker;
@@ -30,7 +30,7 @@ function initMap() {
 
     addMarker = initAddMarkerWithMap(map);
 
-    
+    findGeo();
 }
 
 function findGeo() {
@@ -40,7 +40,7 @@ function findGeo() {
             console.log(position.coords.latitude, position.coords.longitude);
             user_lat = position.coords.latitude;
             user_lon = position.coords.longitude;
-            initialLocation = {lat: position.coords.latitude, lng: position.coords.longitude };
+            initialLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
             console.log(`user_lat is ${user_lat} and is working`);
             console.log(`user_lon is ${user_lon} and is working`);
             initMap();
