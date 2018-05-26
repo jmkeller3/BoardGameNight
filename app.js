@@ -11,6 +11,21 @@ while(matcher = regex.exec(url)) {
     queryParams[key] = val;
 }
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(displayLocation);
+        return function displayLocation(position) {
+            return 
+                let user_lat = position.coords.latitude;
+                let user_lon = position.coords.longitude;
+                console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
+                console.log(`work`);
+        }
+    } else {
+        console.log(`Geolocation is not supported by this browser.`);
+    }
+}
+
 if (Object.keys(queryParams).length) {
     // Authenticated
     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
@@ -27,20 +42,7 @@ if (Object.keys(queryParams).length) {
 else
     window.location.href = loginURL;
 
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(displayLocation);
-            return function displayLocation(position) {
-                return 
-                    let user_lat = position.coords.latitude;
-                    let user_lon = position.coords.longitude;
-                    console.log(`Latitude:${user_lat} Longitude: ${user_lon}`);
-                    console.log(`work`);
-            }
-        } else {
-            console.log(`Geolocation is not supported by this browser.`);
-        }
-    }
+
     
     function displayLocation(position) {
         return 
