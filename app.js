@@ -10,7 +10,7 @@ while(matcher = regex.exec(url)) {
     queryParams[key] = val;
 }
 
-var user_lat, user_lon;
+let user_lat, user_lon;
     navigator.geolocation.getCurrentPosition(function (position) {
         user_lat = position.coords.latitude;
         user_lon = position.coords.longitude;
