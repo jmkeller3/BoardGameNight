@@ -37,7 +37,8 @@ function initMap() {
             console.log(position.coords.latitude, position.coords.longitude)
             user_lat = position.coords.latitude;
             user_lon = position.coords.longitude; 
-            console.log(`user_lat is ${user_lat} and is working`)
+            console.log(`user_lat is ${user_lat} and is working`);
+            console.log(`user_lon is ${user_lon} and is working`);
         });
         if (Object.keys(queryParams).length) {
             // Authenticated
