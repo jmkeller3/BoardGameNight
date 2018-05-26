@@ -6,6 +6,7 @@ const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
 let matcher;
 let queryParams = {};
 let user_lat, user_lon;
+let initialLocation;
 while(matcher = regex.exec(url)) {
     const [,key, val] = matcher;
     queryParams[key] = val;
@@ -19,7 +20,7 @@ let addMarker;
 var map;
 var options;
 function initMap() {
-    var myLatlng1 = new google.maps.LatLng(53.65914, 0.072050);
+    var myLatlng1 = initialLocation;
 
     var mapOptions = {
         zoom: 9,
@@ -30,20 +31,23 @@ function initMap() {
 
     addMarker = initAddMarkerWithMap(map);
 
+    newFunction();
+}
+
+function newFunction() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            map.setCenter(initialLocation);
-            console.log(position.coords.latitude, position.coords.longitude)
+            console.log(position.coords.latitude, position.coords.longitude);
             user_lat = position.coords.latitude;
-            user_lon = position.coords.longitude; 
+            user_lon = position.coords.longitude;
+            initialLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
             console.log(`user_lat is ${user_lat} and is working`);
             console.log(`user_lon is ${user_lon} and is working`);
         });
         if (Object.keys(queryParams).length) {
             // Authenticated
-            console.log(`${user_lon} is and is working`)
-            const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
+            console.log(`${user_lon} is and is working`);
+            const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`;
             console.log(queryParams);
             $.ajax(requestURL, {
                 dataType: 'jsonp',
