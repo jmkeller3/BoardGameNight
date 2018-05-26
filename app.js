@@ -5,17 +5,17 @@ const url = window.location.href;
 const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
 let matcher;
 let queryParams = {};
+let user_lat, user_lon;
 while(matcher = regex.exec(url)) {
     const [,key, val] = matcher;
     queryParams[key] = val;
 }
 
-let user_lat, user_lon;
-    navigator.geolocation.getCurrentPosition(function (position) {
-        user_lat = position.coords.latitude;
-        user_lon = position.coords.longitude;
-        console.log(`${user_lat} is ${position.coords.latitude} and is working`)
-    });
+navigator.geolocation.getCurrentPosition(function (position) {
+    user_lat = position.coords.latitude;
+    user_lon = position.coords.longitude;
+    console.log(`${user_lat} is and is working`)
+});
 
 if (Object.keys(queryParams).length) {
     // Authenticated
