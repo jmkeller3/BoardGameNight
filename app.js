@@ -43,7 +43,7 @@ function newFunction() {
             initialLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
             console.log(`user_lat is ${user_lat} and is working`);
             console.log(`user_lon is ${user_lon} and is working`);
-        });
+        
         if (Object.keys(queryParams).length) {
             // Authenticated
             console.log(`${user_lon} is and is working`);
@@ -59,7 +59,7 @@ function newFunction() {
         }
         else
             window.location.href = loginURL;
-    }
+        });}
 }
 
 function initAddMarkerWithMap(map) {
