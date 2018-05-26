@@ -1,3 +1,4 @@
+console.log(`hi`)
 //Meetup API
 //autorization for OAuth
 const loginURL = `https://secure.meetup.com/oauth2/authorize?client_id=flaq16ghlsndfol2m7jkfe1pfk&response_type=token&redirect_uri=https://jmkeller3.github.io/BoardGameNight/`;
