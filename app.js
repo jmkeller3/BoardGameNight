@@ -35,6 +35,7 @@ function initMap() {
 }
 
 function findGeo() {
+    console.log(`findGeo is working`);
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position.coords.latitude, position.coords.longitude);
@@ -48,6 +49,7 @@ function findGeo() {
     }
 
 function MeetupLogin() {
+    console.log(`MeetupLogin is working`);
     if (Object.keys(queryParams).length) {
         // Authenticated
         console.log(`${user_lon} is and is working`);
