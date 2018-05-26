@@ -11,27 +11,7 @@ while(matcher = regex.exec(url)) {
     queryParams[key] = val;
 }
 
-navigator.geolocation.getCurrentPosition(function (position) {
-    user_lat = position.coords.latitude;
-    user_lon = position.coords.longitude;
-    console.log(`${user_lat} is and is working`)
-});
 
-if (Object.keys(queryParams).length) {
-    // Authenticated
-    console.log(`${user_lon} is and is working`)
-    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
-    console.log(queryParams);
-    $.ajax(requestURL, {
-        dataType: 'jsonp',
-        success: function (data) {
-            console.log(data);
-            displayresults(data);
-        }
-    });
-}
-else
-    window.location.href = loginURL;
 
 
 let addMarker;
@@ -55,7 +35,25 @@ function initMap() {
             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             map.setCenter(initialLocation);
             console.log(position.coords.latitude, position.coords.longitude)
+            user_lat = position.coords.latitude;
+            user_lon = position.coords.longitude; 
+            console.log(`user_lat is ${user_lat} and is working`)
         });
+        if (Object.keys(queryParams).length) {
+            // Authenticated
+            console.log(`${user_lon} is and is working`)
+            const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`
+            console.log(queryParams);
+            $.ajax(requestURL, {
+                dataType: 'jsonp',
+                success: function (data) {
+                    console.log(data);
+                    displayresults(data);
+                }
+            });
+        }
+        else
+            window.location.href = loginURL;
     }
 }
 
