@@ -30,12 +30,13 @@ function renderPage() {
             console.log(`user_lat is ${user_lat} and is working`);
             console.log(`user_lon is ${user_lon} and is working`);
             //resets the map to be centered on the user's location
+            let mapOptions = {
+                zoom: 9,
+                center: initialLocation,
+            };
         });
     };
-    let mapOptions = {
-        zoom: 9,
-        center: initialLocation,
-    };
+    console.log(mapOptions);
     let map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
 
