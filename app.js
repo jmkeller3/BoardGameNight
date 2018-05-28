@@ -34,12 +34,12 @@ function renderPage() {
                 zoom: 9,
                 center: initialLocation,
             };
+            console.log(mapOptions);
+            let map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
         });
     };
-    console.log(mapOptions);
-    let map = new google.maps.Map(document.getElementById('map'),
-    mapOptions);
-
+    
     addMarker = initAddMarkerWithMap(map);
 
     fetchMeetupData(user_lat, user_lon);    
