@@ -21,6 +21,7 @@ function renderPage() {
         event.preventDefault();
         window.location.href = loginURL;})
     }
+    //accesses user's location and sets the location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position.coords.latitude, position.coords.longitude);
@@ -43,15 +44,15 @@ function renderPage() {
     };  
 }
 
-//accesses user's location and sets the location 
+ 
 
 
-//takes user to the login page to allow access from Meetup
-//reloads page with JSONP data with nearby events
+//gets data from Meetup API
+//&category_id=11
 function fetchMeetupData(lat, lon) {
     console.log(`MeetupLogin is working`);
     console.log(`lat is ${lat} and is working`);
-    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&category_id=11&radius=smart&lat=${lat}`;
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&radius=smart&lat=${lat}`;
     console.log(queryParams);
     $.ajax(requestURL, {
         dataType: 'jsonp',
