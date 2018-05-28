@@ -24,7 +24,6 @@ button {
   position: absolute;
   left: 50%;
   top: 5%;
-  columns: 2/3;
 }
 
 
@@ -49,7 +48,7 @@ button {
 }
 
 .js-events {
-  /* padding: 20px; */
+  grid-column-start: 2;
   border: 1px solid black;
   /* width: 75%; */
   /* margin: auto; */
