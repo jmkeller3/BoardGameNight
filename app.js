@@ -5,9 +5,6 @@ const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
 let matcher;
 let queryParams = {};
 //defining crucial varibles for map and Meetup search url
-let user_lat; 
-let user_lon;
-let initialLocation;
 while(matcher = regex.exec(url)) {
     const [,key, val] = matcher;
     queryParams[key] = val;
@@ -17,57 +14,53 @@ while(matcher = regex.exec(url)) {
 
 //google map api
 let addMarker;
-var map;
-var options;
-function initMap() {
-    var mapOptions = {
+let map;
+function renderPage() {
+    if (!Object.keys(queryParams).length)
+    $('.js-location-form').submit(event => {
+        event.preventDefault();
+        window.location.href = loginURL;})
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position.coords.latitude, position.coords.longitude);
+            let user_lat = position.coords.latitude;
+            let user_lon = position.coords.longitude;
+            let initialLocation = { lat: user_lat, lng: user_lon };
+            console.log(`user_lat is ${user_lat} and is working`);
+            console.log(`user_lon is ${user_lon} and is working`);
+            //resets the map to be centered on the user's location
+        });
+    };
+    let mapOptions = {
         zoom: 9,
         center: initialLocation,
     };
-    var map = new google.maps.Map(document.getElementById('map'),
+    let map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
 
     addMarker = initAddMarkerWithMap(map);
 
-    findGeo();
+    fetchMeetupData(user_lat, user_lon);    
 }
 
-//accesses user's location and sets the location to the global varibles
-function findGeo() {
-    console.log(`findGeo is working`);
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position.coords.latitude, position.coords.longitude);
-            user_lat = position.coords.latitude;
-            user_lon = position.coords.longitude;
-            initialLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
-            console.log(`user_lat is ${user_lat} and is working`);
-            console.log(`user_lon is ${user_lon} and is working`);
-            //resets the map to be centered on the user's location
-            initMap();
-            MeetupLogin();
-        });
-    };
-    }
+//accesses user's location and sets the location 
+
+
 //takes user to the login page to allow access from Meetup
 //reloads page with JSONP data with nearby events
-function MeetupLogin() {
+function fetchMeetupData(lat, lon) {
     console.log(`MeetupLogin is working`);
-    if (Object.keys(queryParams).length) {
-        // Authenticated
-        console.log(`${user_lon} is and is working`);
-        const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${user_lon}&category_id=11&radius=smart&lat=${user_lat}`;
-        console.log(queryParams);
-        $.ajax(requestURL, {
-            dataType: 'jsonp',
-            success: function (data) {
-                console.log(data);
-                displayresults(data);
-            }
-        });
-    }
-    else
-        window.location.href = loginURL;
+    console.log(`lat is ${lat} and is working`);
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&category_id=11&radius=smart&lat=${lat}`;
+    console.log(queryParams);
+    $.ajax(requestURL, {
+        dataType: 'jsonp',
+        success: (data) => {
+            console.log(data);
+            displayresults(data);
+        }
+    });
 }
 
 //adds customer marker to map
@@ -104,18 +97,16 @@ function renderResults(result) {
         longitude = result.group.group_lon;
     }
     //displays a marker on map for event
-    function renderLatAndLon () {
-        if (venueExists || groupExists) {
-            const pin = {lat: latitude, lng: longitude}
-            addMarker(pin);                
-        } else {
-            console.log(`No latitude and longitude availible.`);
-        }
+    if (venueExists || groupExists) {
+        const pin = {lat: latitude, lng: longitude}
+        addMarker(pin);                
+    } else {
+        console.log(`No latitude and longitude availible.`);
     }
     
     return (`
         <div class="js-events">
-            <h4>${result.name}</h4>
+            <h3>${result.name}</h3>
                 ${result.description}
                 <span>Hosted by ${result.group.name}</span><br/>
                 <span>Starts at ${date}</span><br/>
