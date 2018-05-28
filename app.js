@@ -16,11 +16,11 @@ while(matcher = regex.exec(url)) {
 let addMarker;
 let map;
 function renderPage() {
-    if (!Object.keys(queryParams).length)
+    if (!Object.keys(queryParams).length) {
     $('.js-location-form').submit(event => {
         event.preventDefault();
         window.location.href = loginURL;})
-
+    }
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position.coords.latitude, position.coords.longitude);
@@ -37,12 +37,10 @@ function renderPage() {
             console.log(mapOptions);
             let map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
+            addMarker = initAddMarkerWithMap(map);
+            fetchMeetupData(user_lat, user_lon); 
         });
-    };
-    
-    addMarker = initAddMarkerWithMap(map);
-
-    fetchMeetupData(user_lat, user_lon);    
+    };  
 }
 
 //accesses user's location and sets the location 
