@@ -5,11 +5,9 @@
 
 .js-results {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 10% 1fr 10%;
   grid-gap: 1em;
-  grid-auto-rows: minmax(100px, auto);
-  justify-items: start;
-  
+  grid-auto-rows: minmax(100px, auto);  
 }
 
 .search-bar {
@@ -25,7 +23,8 @@ button {
   display: block;
   position: absolute;
   left: 50%;
-  top: 5%
+  top: 5%;
+  columns: 2/3;
 }
 
 

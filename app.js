@@ -120,7 +120,6 @@ function renderResults(result) {
                 <span>Hosted by ${result.group.name}</span><br/>
                 <span>Starts at ${date}</span><br/>
                 <a href="${result.event_url}" target="_blank">Link</a><br/>
-                ${renderLatAndLon()}
         </div>`)
         
 }
