@@ -45,11 +45,10 @@ button {
 
 .card-container {
   cursor: pointer;
-  perspective: 600;
   position: static;
   display: block;
   height: 2000px;
-  width: 200px;
+  width: 1fr;
   text-align: center;
   margin: auto;
   overflow: auto;
@@ -57,7 +56,6 @@ button {
 
 .card {
   height: 200px;
-  
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -67,7 +65,7 @@ button {
   -webkit-transition: all 1 s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  width: 100px;
+  width: 1fr;
   margin-bottom: 20px;
   text-align: center;
   }
@@ -129,6 +127,6 @@ button {
 
 #map {
     height: 400px;
-    width: 100%;
+    width: 80%;
     margin-top: 80px
   }
