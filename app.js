@@ -105,12 +105,16 @@ function renderResults(result) {
     }
     
     return (`
-        <div class="js-events">
+        <div class="js-events card">
+            <div class="side">
             <h3>${result.name}</h3>
-                ${result.description}
                 <span>Hosted by ${result.group.name}</span><br/>
                 <span>Starts at ${date}</span><br/>
-                <a href="${result.event_url}" target="_blank">Link</a><br/>
+                <a href="${result.event_url}" target="_blank">Link</a>
+            </div>
+            <div class="side back">
+                ${result.description}
+            </div>
         </div>`)
         
 }
