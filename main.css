@@ -62,7 +62,7 @@ button {
   -webkit-transition: all 1 s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  width: 100%;
+  width: 90%;
 }
 
 .card:hover {
@@ -78,14 +78,16 @@ button {
   backface-visibility: hidden;
   border-radius: 6px;
   height: 100%;
+  color: #DAFBF7;
+  background-color: #5C4785;
   position:absolute;
   overflow: hidden;
   width: 100%;
 }
 
 .card .back {
-  background: #3EE8D4;
-  color: #725197;
+  background: #DAFBF7;
+  color: #5C4785;
   text-align: center;
   transform: rotateY(180deg);
 }
@@ -93,12 +95,12 @@ button {
 .js-results > div {
   padding: 1em;
   background:#3EE8D4;
-  color: #725197;
+  color: #5C4785;
 }
 
 .js-results > div:nth-child(odd){
-  background: #8CFFB0;
-  color: #725197;
+  background: #CCFFDD;
+  color: #5C4785;
 }
 
 .js-results {
