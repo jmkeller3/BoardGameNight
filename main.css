@@ -46,13 +46,18 @@ button {
 .card-container {
   cursor: pointer;
   perspective: 600;
-  position: relative;
-  grid-column-start: 2;
+  position: static;
+  display: block;
+  height: 2000px;
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  overflow: auto;
 }
 
 .card {
-  height: 100%;
-  position: absolute;
+  height: 200px;
+  
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -62,8 +67,10 @@ button {
   -webkit-transition: all 1 s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  width: 90%;
-}
+  width: 100px;
+  margin-bottom: 20px;
+  text-align: center;
+  }
 
 .card:hover {
   transform: rotateY(180deg);
@@ -71,24 +78,25 @@ button {
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
 }
 
 .card .side {
   backface-visibility: hidden;
   border-radius: 6px;
-  height: 100%;
+  height: auto;
   color: #DAFBF7;
   background-color: #5C4785;
   position:absolute;
   overflow: hidden;
   width: 100%;
+  display: block
 }
 
 .card .back {
   background: #DAFBF7;
   color: #5C4785;
   text-align: center;
+  border-radius: 6px;
   transform: rotateY(180deg);
 }
 
