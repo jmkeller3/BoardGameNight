@@ -20,6 +20,7 @@ function renderPage() {
     if (!Object.keys(queryParams).length) {
     $('.js-location-form').submit(event => {
         event.preventDefault();
+        displayMap();
         window.location.href = loginURL;})
     }
     //accesses user's location and sets the location
@@ -41,7 +42,7 @@ function renderPage() {
             mapOptions);
             addMarker = initAddMarkerWithMap(map);
             fetchMeetupData(user_lat, user_lon); 
-            // displayMap();
+            
         });
     };  
 }
