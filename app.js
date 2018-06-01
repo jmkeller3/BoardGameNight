@@ -116,7 +116,7 @@ function renderResults(result) {
         <p>${address}</p>
         <p>Starts at ${date}</p>
         `;
-        markerInfo(markerPreview);           
+        // markerInfo(markerPreview);           
     } else {
         console.log(`No latitude and longitude availible.`);
     }
@@ -145,6 +145,7 @@ function displayresults(data) {
 }
 
 function displayMap() {
+    console.log(`display the map!`);
     document.getElementById('map').style.display="block";
 }
 
