@@ -85,7 +85,9 @@ function initAddMarkerWithMap(map) {
         
 
         marker.addListener('click', function() {
-            
+            for (const iw of windowArray) {
+                iw.close();
+            }
             
             infowindow.open(map,marker);
         })}; 
