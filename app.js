@@ -77,7 +77,10 @@ function initAddMarkerWithMap(map) {
                     scaledSize: new google.maps.Size(18,24)
                     },
                 title: title
-        })} 
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map,maker);
+        })}; 
 }
 
 //takes a result and returns the time, place, description, and name 
