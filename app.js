@@ -85,6 +85,7 @@ function initAddMarkerWithMap(map) {
         
 
         marker.addListener('click', function() {
+            //closes any open infowindows
             for (const iw of windowArray) {
                 iw.close();
             }
