@@ -40,7 +40,7 @@ function renderPage() {
             mapOptions);
             addMarker = initAddMarkerWithMap(map);
             fetchMeetupData(user_lat, user_lon); 
-            displayMap();
+            // displayMap();
         });
     };  
 }
