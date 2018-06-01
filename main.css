@@ -103,16 +103,26 @@ button {
   width: 100%
 }
 
-.js-results > div {
-  padding: 1em;
+.js-results > div:nth-child(even) .card.side {
   background:#3EE8D4;
   color: #5C4785;
 }
 
-.js-results > div:nth-child(odd){
+.js-results > div:nth-child(odd) .card.side {
   background: #CCFFDD;
   color: #5C4785;
 }
+
+.js-results > div:nth-child(odd) .card.back {
+  background:#3EE8D4;
+  color: #5C4785;
+}
+
+.js-results > div:nth-child(even) .card.back {
+  background: #CCFFDD;
+  color: #5C4785;
+}
+
 
 .js-results {
   text-align: center;
@@ -123,11 +133,11 @@ button {
   list-style: none;
 }
 
-.js-events {
+/* .js-events {
   grid-column-start: 2;
   border-radius: 10px;
 
-}
+} */
 
 #map {
     display: none;
