@@ -15,6 +15,7 @@ while(matcher = regex.exec(url)) {
 //google map api
 let addMarker;
 let map;
+let windowInfo;
 function renderPage() {
     if (!Object.keys(queryParams).length) {
     $('.js-location-form').submit(event => {
@@ -68,13 +69,14 @@ function fetchMeetupData(lat, lon) {
 function initAddMarkerWithMap(map) {
     console.log(`made a marker`);
     return function addMarker(coords) {
-            var marker = new google.maps.Marker({
+            let marker = new google.maps.Marker({
                 position: coords,
                 map: map,
                 icon: {
                     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
                     scaledSize: new google.maps.Size(18,24)
-            }
+                    },
+                // title: 'Event Location'
         })} 
 }
 
@@ -100,10 +102,17 @@ function renderResults(result) {
     //displays a marker on map for event
     if (venueExists || groupExists) {
         const pin = {lat: latitude, lng: longitude}
-        addMarker(pin);                
+        addMarker(pin);     
+        let markerPreview = `<p>${result.name}</p>`;
+        markerInfo(markerPreview);
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        })           
     } else {
         console.log(`No latitude and longitude availible.`);
     }
+
+    
     
     return (`
         <div class="js-events card">
@@ -128,4 +137,8 @@ function displayresults(data) {
 
 function displayMap() {
     document.getElementById('map').style.display="block";
+}
+
+function markerInfo(contentString) {
+    let infowindow = new google.maps.InfoWindow({content: contentString})
 }
