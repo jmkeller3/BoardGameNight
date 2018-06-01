@@ -40,6 +40,7 @@ function renderPage() {
             mapOptions);
             addMarker = initAddMarkerWithMap(map);
             fetchMeetupData(user_lat, user_lon); 
+            displayMap();
         });
     };  
 }
@@ -123,4 +124,8 @@ function displayresults(data) {
     const events = data.results.map((item, index) => renderResults(item));
     $('.js-results').html(events);
     console.log(`displayresults ran`);
+}
+
+function displayMap() {
+    document.getElementById('map').style.display="block";
 }
