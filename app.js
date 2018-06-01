@@ -106,7 +106,7 @@ function renderResults(result) {
         let markerPreview = `<p>${result.name}</p>`;
         markerInfo(markerPreview);
         marker.addListener('click', function() {
-            infowindow.open(map, marker);
+            infowindow.open(map, addMarker);
         })           
     } else {
         console.log(`No latitude and longitude availible.`);
