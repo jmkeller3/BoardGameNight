@@ -15,7 +15,7 @@ while(matcher = regex.exec(url)) {
 //google map api
 let addMarker;
 let map;
-let windowInfo;
+let windowArray = [];
 function renderPage() {
     if (!Object.keys(queryParams).length) {
     $('.js-location-form').submit(event => {
@@ -81,8 +81,12 @@ function initAddMarkerWithMap(map) {
         });
         let infowindow = new google.maps.InfoWindow({
             content:contentString});
+        windowArray.push(infowindow);
+        
 
         marker.addListener('click', function() {
+            
+            
             infowindow.open(map,marker);
         })}; 
 }
