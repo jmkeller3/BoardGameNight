@@ -135,11 +135,10 @@ button {
   list-style: none;
 }
 
-/* .js-events {
+.js-events {
   grid-column-start: 2;
-  border-radius: 10px;
 
-} */
+}
 
 #map {
     display: none;
