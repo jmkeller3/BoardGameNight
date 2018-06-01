@@ -68,7 +68,7 @@ function fetchMeetupData(lat, lon) {
 //adds customer marker to map
 function initAddMarkerWithMap(map) {
     console.log(`made a marker`);
-    return function addMarker(coords) {
+    return function addMarker(coords, title) {
             let marker = new google.maps.Marker({
                 position: coords,
                 map: map,
@@ -76,7 +76,7 @@ function initAddMarkerWithMap(map) {
                     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
                     scaledSize: new google.maps.Size(18,24)
                     },
-                // title: 'Event Location'
+                title: title
         })} 
 }
 
@@ -95,19 +95,23 @@ function renderResults(result) {
     if (venueExists) {
         latitude = result.venue.lat;
         longitude = result.venue.lon;
+        address = `<span>${result.venue.address_1}<br/>
+                    ${result.venue.city}, ${result.venue.state} ${result.venue.zip}</span>`
     } else {
         latitude = result.group.group_lat;
         longitude = result.group.group_lon;
+        address = `<span>Group Event, see description for details!</span>`
     }
     //displays a marker on map for event
     if (venueExists || groupExists) {
-        const pin = {lat: latitude, lng: longitude}
-        addMarker(pin);     
-        let markerPreview = `<p>${result.name}</p>`;
-        markerInfo(markerPreview);
-        marker.addListener('click', function() {
-            infowindow.open(map, addMarker);
-        })           
+        const pin = {lat: latitude, lng: longitude};
+        let name = result.name
+        addMarker(pin, title);     
+        let markerPreview = `<h3>${name}</h3>
+        <p>${address}</p>
+        <p>Starts at ${date}</p>
+        `;
+        markerInfo(markerPreview);           
     } else {
         console.log(`No latitude and longitude availible.`);
     }
