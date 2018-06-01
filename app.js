@@ -20,7 +20,6 @@ function renderPage() {
     if (!Object.keys(queryParams).length) {
     $('.js-location-form').submit(event => {
         event.preventDefault();
-        displayMap();
         window.location.href = loginURL;})
     }
     //accesses user's location and sets the location
@@ -57,6 +56,7 @@ function fetchMeetupData(lat, lon) {
     console.log(`lat is ${lat} and is working`);
     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&radius=smart&lat=${lat}`;
     console.log(queryParams);
+    displayMap();
     $.ajax(requestURL, {
         dataType: 'jsonp',
         success: (data) => {
