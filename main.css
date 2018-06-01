@@ -51,7 +51,7 @@ button {
   width: 1fr;
   text-align: center;
   margin: auto;
-  overflow: auto;
+/*   overflow: auto; */
 }
 
 .card {
@@ -61,12 +61,14 @@ button {
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
-  transition: all 1s ease-in-out;
-  -webkit-transition: all 1 s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  width: 1fr;
+  transition: all 1.3s ease-in-out;
+  -webkit-transition: all 1.3s ease-in-out;
+  -moz-transition: all 1.5s ease-in-out;
+  -o-transition: all 1.5s ease-in-out;
+  width: 70%;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   }
 
