@@ -124,7 +124,7 @@ function renderResults(result) {
     
     
     return (`
-        <div class="js-events card">
+        <div class="js-events card ${result.description == null ? 'disabled' : ''}">
             <div class="side">
             <h3>${result.name}</h3>
                 <span>Hosted by ${result.group.name}</span><br/>
