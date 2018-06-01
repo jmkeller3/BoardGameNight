@@ -24,7 +24,7 @@ a::visted {
   display: grid;
   grid-template-columns: 10% 1fr 10%;
   grid-gap: 1em;
-  grid-auto-rows: minmax(100px, auto);  
+  grid-auto-rows: auto;
 }
 
 .search-bar {
@@ -46,7 +46,8 @@ button {
 .card-container {
   cursor: pointer;
   position: static;
-  display: block;
+  display: grid;
+  
   height: 2000px;
   width: 1fr;
   text-align: center;
@@ -55,7 +56,7 @@ button {
 }
 
 .card {
-  height: 200px;
+  
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -88,7 +89,8 @@ button {
   background-color: #5C4785;
   position:absolute;
   overflow: hidden;
-  width: 100%;
+  width: 90%;
+  
   display: block
 }
 
@@ -98,6 +100,7 @@ button {
   text-align: center;
   border-radius: 6px;
   transform: rotateY(180deg);
+  width: 90%
 }
 
 .js-results > div {
@@ -128,7 +131,6 @@ button {
 }
 
 #map {
-    display: none;
     height: 400px;
     width: 80%;
     margin-top: 80px
