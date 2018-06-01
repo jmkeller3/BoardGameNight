@@ -83,7 +83,7 @@ function initAddMarkerWithMap(map) {
             content:contentString});
 
         marker.addListener('click', function() {
-            infowindow.open(map,maker);
+            infowindow.open(map,marker);
         })}; 
 }
 
