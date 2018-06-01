@@ -104,9 +104,15 @@ button {
 }
 
 .js-results > div:nth-child(even) .card.side {
-  background:#3EE8D4;
+  background:#5C4785;
+  color: #3EE8D4;
+}
+
+.js-results > div:nth-child(even) .card.back {
+  background: #3EE8D4;
   color: #5C4785;
 }
+
 
 .js-results > div:nth-child(odd) .card.side {
   background: #CCFFDD;
@@ -115,13 +121,9 @@ button {
 
 .js-results > div:nth-child(odd) .card.back {
   background:#5C4785;
-  color: #CCFFDD
-}
-
-.js-results > div:nth-child(even) .card.back {
-  background: #5C4785;
   color: #CCFFDD;
 }
+
 
 
 .js-results {
