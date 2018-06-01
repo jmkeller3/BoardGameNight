@@ -106,7 +106,7 @@ function renderResults(result) {
     if (venueExists || groupExists) {
         const pin = {lat: latitude, lng: longitude};
         let name = result.name
-        addMarker(pin, title);     
+        addMarker(pin, name);     
         let markerPreview = `<h3>${name}</h3>
         <p>${address}</p>
         <p>Starts at ${date}</p>
