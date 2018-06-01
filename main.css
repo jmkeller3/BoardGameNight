@@ -138,6 +138,10 @@ button {
     margin-top: 80px
   }
 
-  .card.disabled {
-    transition: none;
+  .card.disabled:hover {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
   }
