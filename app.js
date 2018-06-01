@@ -69,7 +69,7 @@ function fetchMeetupData(lat, lon) {
 //adds customer marker to map
 function initAddMarkerWithMap(map) {
     console.log(`made a marker`);
-    return function addMarker(coords, title) {
+    return function addMarker(coords, title, contentString) {
             let marker = new google.maps.Marker({
                 position: coords,
                 map: map,
@@ -79,7 +79,9 @@ function initAddMarkerWithMap(map) {
                     },
                 title: title
         });
-        
+        let infowindow = new google.maps.InfoWindow({
+            content:contentString});
+
         marker.addListener('click', function() {
             infowindow.open(map,maker);
         })}; 
@@ -111,12 +113,11 @@ function renderResults(result) {
     if (venueExists || groupExists) {
         const pin = {lat: latitude, lng: longitude};
         let name = result.name
-        addMarker(pin, name);     
         let markerPreview = `<h3>${name}</h3>
         <p>${address}</p>
         <p>Starts at ${date}</p>
         `;
-        // markerInfo(markerPreview);           
+        addMarker(pin, name, markerPreview);        
     } else {
         console.log(`No latitude and longitude availible.`);
     }
