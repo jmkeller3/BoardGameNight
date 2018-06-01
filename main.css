@@ -126,12 +126,13 @@ button {
 .js-events {
   grid-column-start: 2;
   border-radius: 10px;
-  /* width: 75%; */
-  /* margin: auto; */
+
 }
 
 #map {
     height: 400px;
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 80px
   }
