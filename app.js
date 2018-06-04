@@ -165,13 +165,11 @@ function displayMap() {
 
 function removeIntro() {
     console.log(`removeIntro worked`);
-    let x = document.getElementsByClassName("hidden")
-    let y = document.getElementsByClassName("content-wrap")
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        y.style.display = "none";
+    if (document.getElementsByClassName("hidden").style.display === "none") {
+        document.getElementsByClassName("hidden").style.display = "block";
+        document.getElementsByClassName("content-wrap").style.display = "none";
     } else {
-        x.style.display = "none";
-        y.style.display = "block";
+        document.getElementsByClassName("hidden").style.display = "none";
+        document.getElementsByClassName("content-wrap").style.display = "block";
     }
 }
