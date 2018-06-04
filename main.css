@@ -52,10 +52,13 @@ a::visted {
   display: inline-block;
 }
 
-.hidden {
+/* js-data */
+.hidden, .hidden #map {
   display: none;
 }
 
+
+/* introduction */
 .content-wrap {
   display: block;
 }

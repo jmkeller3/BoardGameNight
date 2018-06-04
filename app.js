@@ -169,4 +169,5 @@ function removeIntro() {
     console.log(`removeIntro worked`);
     $('.hidden').toggle();
     $('.content-wrap').toggle();
+    $('#map').toggle('slow');
 }
