@@ -165,6 +165,6 @@ function displayMap() {
 
 function removeIntro() {
     console.log(`removeIntro worked`);
-    $('.hidden').toggle(display);
-    $('.content-wrap').toggle(display);
+    $('.hidden').toggle();
+    $('.content-wrap').toggle();
 }
