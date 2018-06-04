@@ -253,7 +253,7 @@ button:hover {
 }
 
 #map {
-    display: none;
+    display: none !important;
     height: 400px;
     width: 80%;
     margin-left: auto;
