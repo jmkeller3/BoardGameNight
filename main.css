@@ -79,6 +79,55 @@ button:hover {
 }
 
 .card {
+  width: 1fr;
+}
+
+.card .back,
+.card .front {
+  backface-visibility: hidden;
+  background-color: #fff;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  padding: 15px;
+  transition: transform 1s linear, height 0s linear 0.5s, padding 0s linear 0.5s;
+}
+
+.card .front {
+  height: 100%;
+}
+
+.card .back {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  height: 0;
+}
+
+.card:hover .front {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  height: 0;
+  padding: 0;
+}
+
+.card:hover .back {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+  height: 100%;
+  padding: 15px;
+}
+
+/* Old Code */
+/* .card {
   
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -122,7 +171,7 @@ button:hover {
   border-radius: 6px;
   transform: rotateY(180deg);
   width: 100%
-}
+} */
 
 /* .js-results > div:nth-child(even) .card.side {
   background:#5C4785;
