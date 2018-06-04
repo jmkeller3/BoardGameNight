@@ -3,14 +3,30 @@
   box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
-}
-
 body {
   font-family: 'Merriweather', serif;
-  background-image: url("https://imgur.com/a/QUyARUi");
+  background: #333;
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: center;
   
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1, h3, h4 {
+  margin: 0;
+  padding: 1em 0;
+} 
+
+p {
+  margin: 0;
+  padding: 1em 0;
 }
 
 a {
@@ -19,16 +35,6 @@ a {
 
 a::visted {
   color: #64589F;
-}
-
-h1 {
-  color: #fff;
-  margin-left: 20px;
-}
-
-.container {
-  background-image: url("https://i.imgur.com/EdU0Z3Y.jpg?2");
-  
 }
 
 .js-results {
@@ -44,20 +50,54 @@ h1 {
 
 .js-location-form {
   display: inline-block;
-  
+}
+
+.hidden {
+  display: none;
+}
+
+.content-wrap {
+  display: block;
+}
+
+/* Header */
+#showcase {
+  min-height: 450px;
+  color: #fff;
+  text-align: center;
+}
+
+#showcase .bg-img {
+  position: absolute;
+  background: #333 url('https://i.imgur.com/v6FOti1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+#showcase h1 {
+  padding-top: 100px;
+  padding-bottom: 0;
+}
+
+#showcase .content-wrap,
+#section-a .content-wrap {
+  padding: 0 1.5em;
 }
 
 button {
-  display: block;
-  /* position: absolute; */
-  left: 50%;
-  top: 5%;
+  display: inline-block;
   background: black;
-  border: 1px solid white;
+  border: 1px solid #666;
   border-radius: 6px;
+  padding: 1em 2em;
   color: #fff;
   font-weight: 700;
-  width: 20%;
+  width: 60px;
   height: 30px; 
 }
 
@@ -67,18 +107,70 @@ button:hover {
   transition: 1s ease-in-out;
 }
 
-/* .card-container {
-  cursor: pointer;
-  position: static;
-  display: block;
-  height: 2000px;
-  width: 1fr;
+/* section a */
+#section-a {
+  background: #eaeaea;
+  color: #333;
+  padding-bottom: 2em;
+}
+
+/* Section-b */
+#section-b {
+  padding: 2em 1em 1em;
+}
+
+#section-b h3 {
+  padding-top: 0;
+}
+
+#section-b ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#section-b li {
+  margin-bottom: 1em;
+  background: #fff;
+  color: #333;
+}
+
+.card-content {
+  padding: 1.5em;
+}
+
+/* Section-c */
+#section-c {
+  background: #fff;
+  color: #333;
+  padding: 2em;
+}
+
+/* Section-d */
+#section-d .box {
+  padding: 2em;
+  color: #fff
+}
+
+#section-d .box:first-child {
+  background: #2690D4
+}
+
+/* Footer */
+#main-footer {
+  padding: 2em;
+  background: #000;
+  color: #fff;
   text-align: center;
-  margin: auto;
-  overflow: auto;
-} */
+}
+
+#main-footer a {
+  color: #2690D4;
+  text-decoration: none;
+}
 
 .card-event {
+  cursor: pointer;
   width: 1fr;
   margin: 10px auto;
   height: 450px;

@@ -41,7 +41,7 @@ function renderPage() {
             mapOptions);
             addMarker = initAddMarkerWithMap(map);
             fetchMeetupData(user_lat, user_lon); 
-            
+            removeIntro();
         });
     };  
 }
@@ -132,7 +132,7 @@ function renderResults(result) {
     
     
     return (`
-        <div class="js-events card">
+        <div class="js-events card-event">
             <div class="front">
                 <div class="wrapper">
                 <h3>${result.name}</h3>
@@ -162,3 +162,14 @@ function displayMap() {
     document.getElementById('map').style.display="block";
 }
 
+function removeIntro() {
+    let x = document.getElementsByClassName("hidden")
+    let y = document.getElementsByClassName("content-wrap")
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+    } else {
+        x.style.display = "none";
+        y.style.display = "block";
+    }
+}
