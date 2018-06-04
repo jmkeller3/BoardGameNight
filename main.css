@@ -49,7 +49,7 @@ h1 {
 
 button {
   display: block;
-  position: absolute;
+  /* position: absolute; */
   left: 50%;
   top: 5%;
   background: black;
@@ -80,6 +80,8 @@ button:hover {
 
 .card {
   width: 1fr;
+  margin: 10px auto;
+  height: 450px;
 }
 
 .card .back,
