@@ -111,7 +111,7 @@ button:hover {
   -ms-transform: rotateY(-180deg);
   -o-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
-  height: 0;
+  
 }
 
 .card:hover .front {
@@ -120,8 +120,7 @@ button:hover {
   -ms-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  height: 0;
-  padding: 0;
+  
 }
 
 .card:hover .back {
@@ -130,8 +129,6 @@ button:hover {
   -ms-transform: none;
   -o-transform: none;
   transform: none;
-  height: 100%;
-  padding: 15px;
 }
 
 .wrapper {
