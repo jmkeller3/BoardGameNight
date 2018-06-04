@@ -26,7 +26,6 @@ function renderPage() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position.coords.latitude, position.coords.longitude);
-            removeIntro();
             let user_lat = position.coords.latitude;
             let user_lon = position.coords.longitude;
             let initialLocation = { lat: user_lat, lng: user_lon };
@@ -62,6 +61,7 @@ function fetchMeetupData(lat, lon) {
         dataType: 'jsonp',
         success: (data) => {
             console.log(data);
+            removeIntro();
             displayresults(data);
         }
     });
