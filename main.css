@@ -82,6 +82,7 @@ button:hover {
   width: 1fr;
   margin: 10px auto;
   height: 450px;
+  position: relative;
 }
 
 .card .back,
@@ -129,7 +130,13 @@ button:hover {
 }
 
 .wrapper {
-  border: 1px solid black;
+  border: 1px solid navy;
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  overflow: auto;
 }
 
 /* Old Code */
