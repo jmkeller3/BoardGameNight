@@ -134,13 +134,18 @@ function renderResults(result) {
     return (`
         <div class="js-events card">
             <div class="front">
-            <h3>${result.name}</h3>
-                <span>Hosted by ${result.group.name}</span><br/>
-                <span>Starts at ${date}</span><br/>
-                <a href="${result.event_url}" target="_blank">Link</a>
+                <div class="wrapper">
+                <h3>${result.name}</h3>
+                    <span>Hosted by ${result.group.name}</span><br/>
+                    <span>Starts at ${date}</span><br/>
+                    <a href="${result.event_url}" target="_blank">Link</a>
+                </div>
             </div>
+
             <div class="back">
+                <div class="wrapper">
                 ${result.description == null ? 'No description availible. See link for details.' : result.description}
+                </div>
             </div>
         </div>`)
         
