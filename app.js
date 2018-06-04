@@ -163,6 +163,7 @@ function displayMap() {
 }
 
 function removeIntro() {
+    console.log(`removeIntro worked`);
     let x = document.getElementsByClassName("hidden")
     let y = document.getElementsByClassName("content-wrap")
     if (x.style.display === "none") {
