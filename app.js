@@ -165,11 +165,6 @@ function displayMap() {
 
 function removeIntro() {
     console.log(`removeIntro worked`);
-    if (document.getElementsByClassName("hidden").style.display === "none") {
-        document.getElementsByClassName("hidden").style.display = "block";
-        document.getElementsByClassName("content-wrap").style.display = "none";
-    } else {
-        document.getElementsByClassName("hidden").style.display = "none";
-        document.getElementsByClassName("content-wrap").style.display = "block";
-    }
+    $('.hidden').toggle(display);
+    $('.content-wrap').toggle(display);
 }
