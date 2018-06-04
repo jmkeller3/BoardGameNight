@@ -67,7 +67,7 @@ button:hover {
   transition: 1s ease-in-out;
 }
 
-.card-container {
+/* .card-container {
   cursor: pointer;
   position: static;
   display: block;
@@ -75,18 +75,18 @@ button:hover {
   width: 1fr;
   text-align: center;
   margin: auto;
-/*   overflow: auto; */
-}
+  overflow: auto;
+} */
 
-.card {
+.card-event {
   width: 1fr;
   margin: 10px auto;
   height: 450px;
   position: relative;
 }
 
-.card .back,
-.card .front {
+.card-event .back,
+.card-event .front {
   backface-visibility: hidden;
   background-color: #fff;
   top: 0;
@@ -101,11 +101,11 @@ button:hover {
   position: absolute;
 }
 
-.card .front {
+.card-event .front {
   z-index: 1;
 }
 
-.card .back {
+.card-event .back {
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -ms-transform: rotateY(-180deg);
@@ -114,7 +114,7 @@ button:hover {
   
 }
 
-.card:hover .front {
+.card-event:hover .front {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
@@ -123,7 +123,7 @@ button:hover {
   
 }
 
-.card:hover .back {
+.card-event:hover .back {
   -webkit-transform: none;
   -moz-transform: none;
   -ms-transform: none;
@@ -140,72 +140,6 @@ button:hover {
   bottom: 30px;
   overflow: auto;
 }
-
-/* Old Code */
-/* .card {
-  
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transition: all 1.3s ease-in-out;
-  -webkit-transition: all 1.3s ease-in-out;
-  -moz-transition: all 1.5s ease-in-out;
-  -o-transition: all 1.5s ease-in-out;
-  width: 100%;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  }
-
-.card:hover {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-}
-
-.card .side {
-  backface-visibility: hidden;
-  border-radius: 6px;
-  height: auto;
-  color: #DAFBF7;
-  background-color: #5C4785;
-  overflow: hidden;
-  width: 100%;
-  display: block
-}
-
-.card .back {
-  background: #DAFBF7;
-  color: #5C4785;
-  text-align: center;
-  border-radius: 6px;
-  transform: rotateY(180deg);
-  width: 100%
-} */
-
-/* .js-results > div:nth-child(even) .card.side {
-  background:#5C4785;
-  color: #3EE8D4;
-}
-.js-results > div:nth-child(even) .card.back {
-  background: #3EE8D4;
-  color: #5C4785;
-}
-.js-results > div:nth-child(odd) .card.side {
-  background: #CCFFDD;
-  color: #5C4785;
-}
-.js-results > div:nth-child(odd) .card.back {
-  background:#5C4785;
-  color: #CCFFDD;
-} */
-
-
 
 .js-results {
   text-align: center;
