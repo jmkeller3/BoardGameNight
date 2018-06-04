@@ -21,7 +21,10 @@ function renderPage() {
     $('.js-location-form').submit(event => {
         event.preventDefault();
         window.location.href = loginURL;})
+    } else {
+        removeIntro();
     }
+
     //accesses user's location and sets the location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -61,7 +64,6 @@ function fetchMeetupData(lat, lon) {
         dataType: 'jsonp',
         success: (data) => {
             console.log(data);
-            removeIntro();
             displayresults(data);
         }
     });

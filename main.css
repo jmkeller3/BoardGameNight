@@ -175,6 +175,7 @@ button:hover {
   margin: 10px auto;
   height: 450px;
   position: relative;
+  
 }
 
 .card-event .back,
@@ -231,6 +232,7 @@ button:hover {
   top: 30px;
   bottom: 30px;
   overflow: auto;
+  color: #333;
 }
 
 .js-results {
