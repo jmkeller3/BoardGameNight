@@ -30,7 +30,7 @@ p {
 }
 
 a {
-  color: #D55E2D;
+  color: #1010E0;
 }
 
 a::visted {
@@ -137,8 +137,8 @@ button:hover {
 
 /* Section-c */
 #section-c {
-  background: #666F89;
-  color: #fff;
+  background: #fff;
+  color: #666F89;
   padding: 2em;
 }
 
@@ -149,7 +149,7 @@ button:hover {
 }
 
 #section-d .box:first-child {
-  background: #D55E2D
+  background: #B74E24
 }
 
 /* Footer */
