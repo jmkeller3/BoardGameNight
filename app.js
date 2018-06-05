@@ -59,7 +59,7 @@ function fetchMeetupData(lat, lon) {
     console.log(`lat is ${lat} and is working`);
     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&radius=smart&lat=${lat}`;
     console.log(queryParams);
-    // displayMap();
+    
     $.ajax(requestURL, {
         dataType: 'jsonp',
         success: (data) => {
@@ -169,5 +169,9 @@ function removeIntro() {
     console.log(`removeIntro worked`);
     $('.hide').toggle();
     $('.content-wrap').toggle();
-    displayMap();
+    // displayMap();
+    // $('#map').toggle('slow', function(){
+    //     console.log(`test map show`);
+    //     google.maps.event.trigger(map, 'resize');
+    // });
 }
