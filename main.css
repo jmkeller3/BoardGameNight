@@ -273,7 +273,7 @@ button:hover {
 
     #section-a .content-text {
       columns: 2;
-      column-gap: 2em;
+      grid-column-gap: 2em;
     }
 
     .content-wrap, #section-b ul {
