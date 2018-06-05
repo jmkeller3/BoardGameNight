@@ -30,7 +30,7 @@ p {
 }
 
 a {
-  color: #E85A5E;
+  color: #D55E2D;
 }
 
 a::visted {
@@ -72,7 +72,7 @@ a::visted {
 
 #showcase .bg-img {
   position: absolute;
-  background: #333 url('https://i.imgur.com/v6FOti1.jpg');
+  background: #3D4252 url('https://i.imgur.com/v6FOti1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -94,8 +94,8 @@ a::visted {
 
 button {
   display: inline-block;
-  background: black;
-  border: 1px solid #666;
+  background: #3D4252;
+  border: 1px solid #666F89;
   border-radius: 6px;
   padding: 0;
   color: #fff;
@@ -106,14 +106,14 @@ button {
 
 button:hover {
   background: #fff;
-  color: black;
+  color: #3D4252;
   transition: 1s ease-in-out;
 }
 
 /* section a */
 #section-a {
-  background: #eaeaea;
-  color: #333;
+  background: #3D4252;
+  color: #FFFFFF;
   padding-bottom: 2em;
 }
 
@@ -135,7 +135,7 @@ button:hover {
 #section-b li {
   margin-bottom: 1em;
   background: #fff;
-  color: #333;
+  color: #666F89;
 }
 
 .card-content {
@@ -144,8 +144,8 @@ button:hover {
 
 /* Section-c */
 #section-c {
-  background: #fff;
-  color: #333;
+  background: #666F89;
+  color: #fff;
   padding: 2em;
 }
 
@@ -156,7 +156,7 @@ button:hover {
 }
 
 #section-d .box:first-child {
-  background: #2690D4
+  background: #D55E2D
 }
 
 /* Footer */
@@ -267,7 +267,7 @@ button:hover {
       display: grid;
       grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
     }
-   
+    
     .content-wrap, .hidden,
     #map, #section-b ul {
       grid-column: 2/4;
@@ -285,6 +285,8 @@ button:hover {
     #section-b li {
       width: 31%;
     }
+
+  
     .card-event {
       width: 45%;
       display: inline-block;
