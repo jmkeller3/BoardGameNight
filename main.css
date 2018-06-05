@@ -5,7 +5,7 @@
 
 body {
   font-family: 'Merriweather', serif;
-  background: #333;
+  background: #3D4252;
   color: #fff;
   font-size: 1.1em;
   line-height: 1.5;
@@ -105,8 +105,8 @@ button:hover {
 
 /* section a */
 #section-a {
-  background: #3D4252;
-  color: #FFFFFF;
+  background: #CACBD5;
+  color: #3D4252;
   padding-bottom: 2em;
 }
 
@@ -222,7 +222,7 @@ button:hover {
 }
 
 .wrapper {
-  border: 1px solid navy;
+  border: 2px solid navy;
   position: absolute;
   left: 30px;
   right: 30px;
@@ -245,9 +245,9 @@ button:hover {
 /* Google Map */
 #map {
     display: none;
-    height: 350px;
+    height: 450px;
     width: 80%;
-    margin-top: 5%;
+    /* margin-top: 2%; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -256,7 +256,7 @@ button:hover {
   @media (min-width: 700px) {
     .grid {
       display: grid;
-      grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+      grid-template-columns: 1fr repeat(2, minmax(auto, 35em)) 1fr;
     }
 
     .content-wrap, .hidden-content, .js-results,
@@ -286,7 +286,8 @@ button:hover {
     }
 
     #map {
-      height: 300px;
-      margin-top: 3%;
+      height: 400px;
+      margin-top:25px;
+      
     }
   }
