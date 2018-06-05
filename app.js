@@ -169,8 +169,5 @@ function removeIntro() {
     console.log(`removeIntro worked`);
     $('.hide').toggle();
     $('.content-wrap').toggle();
-    $('#map').toggle('slow', function(){
-        console.log(`test map show`);
-        // google.maps.event.trigger(map, 'resize');
-    });
+    displayMap();
 }
