@@ -254,8 +254,9 @@ button:hover {
 
 /* Google Map */
 #map {
-    height: 350px;
+    min-height: 400px;
     width: 80%;
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -266,11 +267,6 @@ button:hover {
       display: grid;
       grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
     }
-
-    #section-a .content-text p {
-/*      columns: 2; */
-    }
-
    
     .content-wrap, .hidden,
     #map, #section-b ul {
@@ -289,14 +285,14 @@ button:hover {
     #section-b li {
       width: 31%;
     }
-
-    .js-results {
-      grid-column: 1/4
-    }
-
     .card-event {
       width: 45%;
       display: inline-block;
       margin: 1%;
+    }
+
+    #map {
+      height: 300px;
+      margin-top: 3%;
     }
   }
