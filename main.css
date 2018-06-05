@@ -254,7 +254,7 @@ button:hover {
 
 /* Google Map */
 #map {
-    height: 400px;
+    height: auto;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -267,7 +267,7 @@ button:hover {
       grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
     }
 
-    #section-a .centent-text p {
+    #section-a  p {
       padding-top: 0;
     }
 
@@ -291,5 +291,15 @@ button:hover {
 
     #section-b li {
       width: 31%;
+    }
+
+    #section-b .js-results {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #section-b .card-event {
+      width: 45%;
+
     }
   }
