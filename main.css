@@ -39,9 +39,9 @@ a::visted {
 
 .js-results {
   display: grid;
-  grid-template-columns: 10% 1fr 10%;
-  grid-gap: 1em;
-  grid-auto-rows: minmax(100px, auto);  
+  /* grid-template-columns: 10% 1fr 10%; */
+  /* grid-gap: 1em; */
+  /* grid-auto-rows: minmax(100px, auto); */
 }
 
 .search-bar {
@@ -172,13 +172,14 @@ button:hover {
   text-decoration: none;
 }
 
+/* js-card-events */
+
 .card-event {
   cursor: pointer;
-  width: 1fr;
+  columns: 1;
   margin: 10px auto;
   height: 450px;
   position: relative;
-  
 }
 
 .card-event .back,
@@ -249,7 +250,6 @@ button:hover {
 
 .js-events {
   grid-column-start: 2;
-
 }
 
 /* Google Map */
@@ -267,16 +267,13 @@ button:hover {
       grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
     }
 
-    #section-a .centent-text p {
-      padding-top: 0;
+    #section-a .content-text p {
+/*      columns: 2; */
     }
 
-    #section-a .content-text {
-      columns: 2;
-      column-gap: 2em;
-    }
-
-    .content-wrap, #section-b ul {
+   
+    .content-wrap, .hidden,
+    #map, #section-b ul {
       grid-column: 2/4;
     }
 
@@ -291,5 +288,15 @@ button:hover {
 
     #section-b li {
       width: 31%;
+    }
+
+    .js-results {
+      grid-column: 1/4
+    }
+
+    .card-event {
+      width: 45%;
+      display: inline-block;
+      margin: 1%;
     }
   }
