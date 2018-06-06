@@ -4,7 +4,6 @@ const url = window.location.href;
 const regex = /(?:#|\?|&)(?:([a-zA-Z_]+)=([^&]+))*/g;
 let matcher;
 let queryParams = {};
-//defining crucial varibles for map and Meetup search url
 while(matcher = regex.exec(url)) {
     const [,key, val] = matcher;
     queryParams[key] = val;
@@ -13,36 +12,38 @@ while(matcher = regex.exec(url)) {
 
 
 //google map api
+//Defines key varibles
 let addMarker;
 let map;
 let windowArray = [];
+
+//Callback from Google map
 function renderPage() {
+    //takes user to login screen upon submit button
     if (!Object.keys(queryParams).length) {
     $('.js-location-form').submit(event => {
         event.preventDefault();
         window.location.href = loginURL;})
     } else {
+        //removes introduction content
         removeIntro();
     }
 
     //accesses user's location and sets the location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position.coords.latitude, position.coords.longitude);
             let user_lat = position.coords.latitude;
             let user_lon = position.coords.longitude;
             let initialLocation = { lat: user_lat, lng: user_lon };
-            console.log(`user_lat is ${user_lat} and is working`);
-            console.log(`user_lon is ${user_lon} and is working`);
-            //resets the map to be centered on the user's location
             let mapOptions = {
-                zoom: 9,
+                zoom: 8,
                 center: initialLocation,
             };
             console.log(mapOptions);
             let map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
             addMarker = initAddMarkerWithMap(map);
+            //gets data from Meetup API
             fetchMeetupData(user_lat, user_lon); 
             
         });
@@ -52,17 +53,12 @@ function renderPage() {
  
 
 
-//gets data from Meetup API
+//Search Meetup API for relevent data
 function fetchMeetupData(lat, lon) {
-    console.log(`MeetupLogin is working`);
-    console.log(`lat is ${lat} and is working`);
     const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&category_id=11&radius=smart&lat=${lat}`;
-    console.log(queryParams);
-    
     $.ajax(requestURL, {
         dataType: 'jsonp',
         success: (data) => {
-            console.log(data);
             displayresults(data);
         }
     });
@@ -70,7 +66,6 @@ function fetchMeetupData(lat, lon) {
 
 //adds customer marker to map
 function initAddMarkerWithMap(map) {
-    console.log(`made a marker`);
     return function addMarker(coords, title, contentString) {
             let marker = new google.maps.Marker({
                 position: coords,
@@ -79,29 +74,29 @@ function initAddMarkerWithMap(map) {
                     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png',
                     scaledSize: new google.maps.Size(18,24)
                     },
-                title: title
-        });
-        let infowindow = new google.maps.InfoWindow({
-            content:contentString});
-        windowArray.push(infowindow);
+                title: title});
+            let infowindow = new google.maps.InfoWindow({
+                content:contentString});
+
+            windowArray.push(infowindow);
         
 
-        marker.addListener('click', function() {
+            marker.addListener('click', function() {
             //closes any open infowindows
-            for (const iw of windowArray) {
-                iw.close();
-            }
+                for (const iw of windowArray) {
+                    iw.close();}
             
             infowindow.open(map,marker);
         })}; 
 }
 
 //takes a result and returns the time, place, description, and name 
-//the event
+//of the event
 function renderResults(result) {
-    console.log(`ran renderResults just fine`);
+    //Gets start time from data
     let time = new Date(result.time);
-    let date = time.toString('MMM dd');
+    //converts time into ideal format
+    time.format("dddd, mmmm dS, yyyy, h:MM:ss TT");
     
     const venueExists = result.venue !== undefined;
     const groupExists = result.group !== undefined;
@@ -112,7 +107,7 @@ function renderResults(result) {
         latitude = result.venue.lat;
         longitude = result.venue.lon;
         address = `<span>${result.venue.address_1}<br/>
-                    ${result.venue.city}, ${result.venue.state} ${result.venue.zip}</span>`
+                    ${result.venue.city}, ${result.venue.state}</span>`
     } else {
         latitude = result.group.group_lat;
         longitude = result.group.group_lon;
@@ -124,15 +119,14 @@ function renderResults(result) {
         let name = result.name
         let markerPreview = `<h3>${name}</h3>
         <p>${address}</p>
-        <p>Starts at ${date}</p>
+        <p>Starts at ${time}</p>
         `;
         addMarker(pin, name, markerPreview);        
     } else {
         console.log(`No latitude and longitude availible.`);
     }
 
-    
-    
+    //The event card information with the descriptions on the back   
     return (`
         <div class="js-events card-event">
             <div class="front">
@@ -159,18 +153,9 @@ function displayresults(data) {
     console.log(`displayresults ran`);
 }
 
-function displayMap() {
-    console.log(`display the map!`);
-    document.getElementById('map').style.display="block";
-}
-
+//removes introduction information and reveals map
 function removeIntro() {
     console.log(`removeIntro worked`);
     $('.hide').toggle();
     $('.content-wrap').toggle();
-    // displayMap();
-    // $('#map').toggle('slow', function(){
-    //     console.log(`test map show`);
-    //     google.maps.event.trigger(map, 'resize');
-    // });
 }
