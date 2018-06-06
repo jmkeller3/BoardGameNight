@@ -140,7 +140,7 @@ function renderResults(result) {
         let name = result.name
         let markerPreview = `<h3>${name}</h3>
         <p>${address}</p>
-        <p>Starts at ${startTime}</p>
+        <p>Begins ${startTime}</p>
         `;
         addMarker(pin, name, markerPreview);        
     } else {
@@ -154,7 +154,7 @@ function renderResults(result) {
                 <div class="wrapper">
                 <h3>${result.name}</h3>
                     <span>Hosted by ${result.group.name}</span><br/>
-                    <span>Starts at ${startTime}</span><br/>
+                    <span>Starts ${startTime}</span><br/>
                     <a href="${result.event_url}" target="_blank">Link</a>
                 </div>
             </div>
