@@ -96,7 +96,28 @@ function renderResults(result) {
     //Gets start time from data
     let time = new Date(result.time);
     //converts time into ideal format
-    time.format("dddd, mmmm dS, yyyy, h:MM:ss TT");
+    let month = new Array();
+    month[0]="Jan";
+    month[1]="Feb";
+    month[2]="Mar";
+    month[3]="Apr";
+    month[4]="May";
+    month[5]="Jun";
+    month[6]="Jul";
+    month[7]="Aug";
+    month[8]="Sep";
+    month[9]="Oct";
+    month[10]="Nov";
+    month[11]="Dec";
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    let strTime = hours + ':' + minutes + ampm;
+
+    let startTime = time.getDay()+" "+month[time.getMonth()]+" "+time.getFullYear()+" "+strTime;
     
     const venueExists = result.venue !== undefined;
     const groupExists = result.group !== undefined;
@@ -119,7 +140,7 @@ function renderResults(result) {
         let name = result.name
         let markerPreview = `<h3>${name}</h3>
         <p>${address}</p>
-        <p>Starts at ${time}</p>
+        <p>Starts at ${startTime}</p>
         `;
         addMarker(pin, name, markerPreview);        
     } else {
@@ -133,7 +154,7 @@ function renderResults(result) {
                 <div class="wrapper">
                 <h3>${result.name}</h3>
                     <span>Hosted by ${result.group.name}</span><br/>
-                    <span>Starts at ${date}</span><br/>
+                    <span>Starts at ${startTime}</span><br/>
                     <a href="${result.event_url}" target="_blank">Link</a>
                 </div>
             </div>
