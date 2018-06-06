@@ -251,7 +251,7 @@ button:hover {
     display: none;
     height: 450px;
     width: 80%;
-    /* margin-top: 2%; */
+    color: #000;
     margin-left: auto;
     margin-right: auto;
   }
