@@ -97,18 +97,18 @@ function renderResults(result) {
     let time = new Date(result.time);
     //converts time into ideal format
     let month = new Array();
-    month[0]="Jan";
-    month[1]="Feb";
-    month[2]="Mar";
-    month[3]="Apr";
+    month[0]="January";
+    month[1]="February";
+    month[2]="March";
+    month[3]="April";
     month[4]="May";
-    month[5]="Jun";
-    month[6]="Jul";
-    month[7]="Aug";
-    month[8]="Sep";
-    month[9]="Oct";
-    month[10]="Nov";
-    month[11]="Dec";
+    month[5]="June";
+    month[6]="July";
+    month[7]="August";
+    month[8]="September";
+    month[9]="October";
+    month[10]="November";
+    month[11]="December";
     let hours = time.getHours();
     let minutes = time.getMinutes();
     let ampm = hours >= 12 ? 'pm' : 'am';
@@ -117,7 +117,7 @@ function renderResults(result) {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     let strTime = hours + ':' + minutes + ampm;
 
-    let startTime = time.getDay()+" "+month[time.getMonth()]+" "+time.getFullYear()+" "+strTime;
+    let startTime = month[time.getMonth()]+" "+time.getDay()+", "+time.getFullYear()+" "+strTime;
     
     const venueExists = result.venue !== undefined;
     const groupExists = result.group !== undefined;
