@@ -12,19 +12,23 @@ I wanted a place where users can quickly find and locate board game nights in th
 ## Screenshots 
 Introduction Page:
 
-![introduction page]
+![introduction page 1](screenshots/Introduction 1.png)
 
-About:
+![introduction page 2](screenshots/Introduction 2.png)
 
-![about]
+![introduction page 3](screenshots/Introduction 3.png)
 
 Results Map:
 
-![map]
+![map_1](screenshots/Map 1.png)
+
+![map_2](screenshots/Map 2.png)
 
 Results Cards:
 
-![card]
+![cards](screenshots/Results 1.png)
+
+![cards_flipped](screenshots/Results 2.png)
 
 ## Built With
 
