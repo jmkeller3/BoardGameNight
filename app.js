@@ -53,11 +53,10 @@ function renderPage() {
 
 
 //gets data from Meetup API
-//&category_id=11
 function fetchMeetupData(lat, lon) {
     console.log(`MeetupLogin is working`);
     console.log(`lat is ${lat} and is working`);
-    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&radius=smart&lat=${lat}`;
+    const requestURL = `https://api.meetup.com/2/concierge?access_token=${queryParams.access_token}&lon=${lon}&category_id=11&radius=smart&lat=${lat}`;
     console.log(queryParams);
     
     $.ajax(requestURL, {
