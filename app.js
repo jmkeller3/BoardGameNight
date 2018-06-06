@@ -32,9 +32,12 @@ function renderPage() {
     //accesses user's location and sets the location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            let user_lat = position.coords.latitude;
-            let user_lon = position.coords.longitude;
-            let initialLocation = { lat: user_lat, lng: user_lon };
+            let user_lat = 40.3916;
+            //position.coords.latitude;
+            let user_lon = -111.8508;
+            //position.coords.longitude;
+            let initialLocation = {lat: 40.3916, lon: -111.8508}
+            //{ lat: user_lat, lng: user_lon };
             let mapOptions = {
                 zoom: 8,
                 center: initialLocation,
