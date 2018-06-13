@@ -44,10 +44,10 @@
                     Second, you will be redirected to authorize basic access to a <a href="https://www.meetup.com/" target="_blank">Meetup.com</a> account. It will return you back with the closest board game events near you! </p>
                 </div>
             </div>
-            <div class="hide hidden-content">
+            <div class="hide hidden-content" aria-live="assertive">
                     <h2 class="content-title">Results</h2>
                     <div class="content-text">
-                        <p>Below are the results for your area. Check out the descriptions behind the cards. If there are none that interest you, start your own group at <a href="https://www.meetup.com/create/"                 target="_blank">Meetup.com</a>!</p>
+                        <p>Below are the results for your area. Check out the descriptions behind the cards or click the cards themselves. If there are none that interest you, start your own group at <a href="https://www.meetup.com/create/"                 target="_blank">Meetup.com</a>!</p>
                     </div>
             </div>
         </section>
@@ -88,7 +88,7 @@
                 </li>
             </ul>
             </div>
-            <div class="js-results">
+            <div class="js-results" aria-live="polite">
             </div>
         </section>
         <!-- Section C -->
@@ -99,7 +99,7 @@
                     <a href="https://www.meetup.com/create/"
                         target="_blank">Meetup.com</a>! </p>
             </div>
-            <div class="hide hidden-content">
+            <div class="hide hidden-content" aria-live="polite">
                 <h2 class="content-title">Start Your Own Group</h2>
                 <p>Interested in starting your own Board Game Night? Start a group on
                     <a href="https://www.meetup.com/create/"
@@ -120,7 +120,7 @@
             </div>
         </section>
     </main>
-    <footer id="main-footer" class="grid">
+    <footer id="main-footer" role="footer" class="grid">
             <div class="box">Board Game Night Finder</div>
             <div class="box">Project by <a href="#" target="_blank">John Keller</a></div>
     </footer>

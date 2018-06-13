@@ -31,6 +31,7 @@ p {
 
 a {
   color: #1010E0;
+  display: block;
 }
 
 a::visted {
@@ -224,6 +225,12 @@ button:hover {
   -ms-transform: none;
   -o-transform: none;
   transform: none;
+}
+
+.card-event:focus .front,
+.card-event:focus .back,
+button:focus {
+  outline: 5px solid #B74E24;
 }
 
 .wrapper {

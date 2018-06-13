@@ -150,20 +150,22 @@ function renderResults(result) {
     //The event card information with the descriptions on the back   
     return (`
         <div class="js-events card-event">
-            <div class="front">
-                <div class="wrapper">
-                <h3>${result.name}</h3>
-                    <span>Hosted by ${result.group.name}</span><br/>
-                    <span>Starts ${startTime}</span><br/>
-                    <a href="${result.event_url}" target="_blank">Link</a>
+            <a href="${result.event_url}" target="_blank">
+                <div class="front">
+                    <div class="wrapper">
+                    <h3>${result.name}</h3>
+                        <span>Hosted by ${result.group.name}</span><br/>
+                        <span>Starts ${startTime}</span><br/>
+                        
+                    </div>
                 </div>
-            </div>
 
-            <div class="back">
-                <div class="wrapper">
-                ${result.description == null ? 'No description availible. See link for details.' : result.description}
+                <div class="back">
+                    <div class="wrapper">
+                    ${result.description == null ? 'No description availible. See link for details.' : result.description}
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>`)
         
 }
