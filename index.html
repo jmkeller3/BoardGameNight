@@ -35,16 +35,16 @@
     <!-- Main Area -->
     <main role="main" id="main">
         <!-- Section A -->
-        <section id="section-a" class="grid">
+        <section id="section-a" class="grid" aria-labelledby="section-a-heading">
             <div class="content-wrap">
-                <h2 class="content-title">What We Do</h2>
+                <h2 class="content-title" id="section-a-heading">What We Do</h2>
                 <div class="content-text">
                     <p>Our algorithms take only a few pieces of user information in order to identify the closest board game events nearest
                     to you. First, when prompted, you will need to authorize our website to accessess your geolocation.
                     Second, you will be redirected to authorize basic access to a <a href="https://www.meetup.com/" target="_blank">Meetup.com</a> account. It will return you back with the closest board game events near you! </p>
                 </div>
             </div>
-            <div class="hide hidden-content" aria-live="assertive">
+            <div class="hide hidden-content" aria-live="assertive" hidden>
                     <h2 class="content-title">Results</h2>
                     <div class="content-text">
                         <p>Below are the results for your area. Check out the descriptions behind the cards or click the cards themselves. If there are none that interest you, start your own group at <a href="https://www.meetup.com/create/"                 target="_blank">Meetup.com</a>!</p>
@@ -53,7 +53,7 @@
         </section>
 
         <!-- Section B -->
-        <section id="section-b" class="grid">
+        <section id="section-b" class="grid" aria-label="Information about Board Game Night Finder">
             <!-- <h2 class="content-title">What Is Meetup.com?</h2> -->
             <div class="content-wrap">
             <ul>
@@ -88,7 +88,7 @@
                 </li>
             </ul>
             </div>
-            <div class="js-results" aria-live="polite">
+            <div class="js-results hide" aria-live="polite" aria-label="Board Game Night Results" hidden>
             </div>
         </section>
         <!-- Section C -->
@@ -99,7 +99,7 @@
                     <a href="https://www.meetup.com/create/"
                         target="_blank">Meetup.com</a>! </p>
             </div>
-            <div class="hide hidden-content" aria-live="polite">
+            <div class="hide hidden-content" aria-live="polite" hidden>
                 <h2 class="content-title">Start Your Own Group</h2>
                 <p>Interested in starting your own Board Game Night? Start a group on
                     <a href="https://www.meetup.com/create/"
