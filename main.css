@@ -29,13 +29,19 @@ p {
   padding: 1em 0;
 }
 
-a {
+a { 
   color: #1010E0;
-  display: block;
 }
 
 a::visted {
   color: #64589F;
+}
+
+a:focus,
+a:focus > div {
+  outline: 5px solid #B74E24;
+
+
 }
 
 .search-bar {
@@ -225,12 +231,6 @@ button:hover {
   -ms-transform: none;
   -o-transform: none;
   transform: none;
-}
-
-.card-event:focus .front,
-.card-event:focus .back,
-button:focus {
-  outline: 5px solid #B74E24;
 }
 
 .wrapper {
