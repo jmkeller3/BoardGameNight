@@ -180,5 +180,6 @@ function displayresults(data) {
 function removeIntro() {
     console.log(`removeIntro worked`);
     $('.hide').toggle();
+    $('.hide').prop('hidden', false);
     $('.content-wrap').toggle();
 }
